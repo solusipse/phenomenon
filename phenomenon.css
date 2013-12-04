@@ -1,0 +1,59 @@
+/* Colours */
+@define-color bg_color #333;
+@define-color fg_color #444;
+
+* {
+	border: 0;
+	-GtkScrollbar-has-backward-stepper: false;
+	-GtkScrollbar-has-forward-stepper: false;
+	-GtkWindow-resize-grip-height: 0;
+	-GtkWindow-resize-grip-width: 0;
+}
+
+GtkWindow {
+	background: #333;
+}
+
+GtkTextView {
+	background: none;
+	color: #EEE;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	padding: 50px;
+}
+
+.menu {
+	font-family: "Monospace";
+	background: #444;
+	font-size: 11px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #222;
+}
+
+.menu :hover {
+	transition: 50ms ease-in-out;
+	background: #888;
+}
+
+.menu :insensitive {
+	background: #444;
+	color: #333;
+}
+
+GtkTextView:selected {
+	background: #BBB;
+}
+
+.separator {
+    color: #666;
+}
+
+.scrollbar.slider
+{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #222;
+    border-radius: 10px;
+    background-color: #333;
+}

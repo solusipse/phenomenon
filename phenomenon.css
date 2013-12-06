@@ -1,6 +1,9 @@
 /* Colours */
+@define-color margin_color #333;
+@define-color text_area_color #444;
+@define-color hover_color #4c6985;
 @define-color bg_color #333;
-@define-color fg_color #444;
+@define-color fg_color #BBB;
 
 * {
 	border: 0;
@@ -14,12 +17,24 @@ GtkWindow {
 	background: #333;
 }
 
-GtkTextView {
-	background: none;
+#main_menu_left {
+	background: #300;
+}
+
+GtkButton {
+	background: alpha(#4c6985, 0);
+}
+
+GtkButton:hover {
+	transition: 250ms ease-in-out;
+	background: @hover_color;
+}
+
+#main_text_view {
+	background: #363636;
 	color: #EEE;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
-	padding: 50px;
 }
 
 .menu {
@@ -32,8 +47,8 @@ GtkTextView {
 }
 
 .menu :hover {
-	transition: 50ms ease-in-out;
-	background: #888;
+	transition: 250ms ease-in-out;
+	background: @hover_color;
 }
 
 .menu :insensitive {
@@ -41,7 +56,7 @@ GtkTextView {
 	color: #333;
 }
 
-GtkTextView:selected {
+#main_text_view:selected {
 	background: #BBB;
 }
 

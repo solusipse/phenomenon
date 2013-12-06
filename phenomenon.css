@@ -23,6 +23,7 @@ GtkWindow {
 
 GtkButton {
 	background: alpha(#4c6985, 0);
+	border-radius: 0;
 }
 
 GtkButton:hover {

@@ -65,6 +65,10 @@ GtkButton:hover {
     color: #666;
 }
 
+.scrollbar {
+	background: #333;
+}
+
 .scrollbar.slider
 {
     border-style: solid;

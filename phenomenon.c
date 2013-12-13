@@ -43,16 +43,15 @@ void create_layout(GtkWidget *window, GtkWidget *vbox, GtkWidget *menu,
 
     gtk_widget_set_size_request(menu, margin, -1);
 
-    GtkWidget *right_menu = gtk_event_box_new();
+    GtkWidget *right_menu = gtk_label_new("");
     gtk_widget_set_name(right_menu, "menu_right");
 
-    // TODO: Vertically resizeable right menu
     gtk_widget_set_size_request(right_menu, margin, gdk_screen_height());
 
     gtk_text_view_add_child_in_window(GTK_TEXT_VIEW(text_view),         
-                                      right_menu,
-                                      GTK_TEXT_WINDOW_RIGHT,            
-                                      0, 0);
+                                        right_menu,
+                                        GTK_TEXT_WINDOW_RIGHT,
+                                        0, 0);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                     GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
 }

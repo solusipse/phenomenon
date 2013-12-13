@@ -49,7 +49,6 @@ void create_layout(GtkWidget *window, GtkWidget *vbox, GtkWidget *menu,
     // TODO: Vertically resizeable right menu
     gtk_widget_set_size_request(right_menu, margin, gdk_screen_height());
 
-    gtk_container_add(GTK_CONTAINER(right_menu), right_menu_expander);
     gtk_text_view_add_child_in_window(GTK_TEXT_VIEW(text_view),         
                                       right_menu,
                                       GTK_TEXT_WINDOW_RIGHT,            
@@ -125,7 +124,6 @@ void create_text_widget(GtkWidget *window) {
 
     arrange_menu(menu);
     
-
     /*
     gtk_text_view_set_justification(GTK_TEXT_VIEW(text_view), 3);
     */

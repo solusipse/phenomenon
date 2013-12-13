@@ -28,30 +28,32 @@ void set_text_view_properties(GtkWidget *text_view, int margin) {
     gtk_text_view_set_pixels_above_lines(GTK_TEXT_VIEW(text_view), 2);
 
     gtk_text_view_set_left_margin(GTK_TEXT_VIEW(text_view), 5);
-    //gtk_text_view_set_right_margin(GTK_TEXT_VIEW(text_view), margin);
+    gtk_text_view_set_border_window_size(GTK_TEXT_VIEW(text_view),      
+                                         GTK_TEXT_WINDOW_RIGHT,         
+                                         margin);
 }
 
 void create_layout(GtkWidget *window, GtkWidget *vbox, GtkWidget *menu,
                     GtkWidget *scrolled_window, GtkWidget *text_view, int margin) {
 
-    GtkWidget *tab_menu = gtk_box_new(1, 0);
-    GtkWidget *inner_box = gtk_box_new(0, 0);
-    GtkWidget *box_viewport = gtk_viewport_new(NULL, NULL);
-    gtk_widget_set_size_request(tab_menu, margin, -1);
-
     gtk_container_add(GTK_CONTAINER(window), vbox);
     gtk_container_add(GTK_CONTAINER(vbox), menu);
     gtk_box_pack_end(GTK_BOX(vbox), scrolled_window, 1, 1, 0);
-
-
-    gtk_box_pack_start(GTK_BOX(inner_box), text_view, 1, 1, 0);
-    gtk_container_add(GTK_CONTAINER(inner_box), tab_menu);
-
-    gtk_container_add(GTK_CONTAINER(box_viewport), inner_box);
-
-    gtk_container_add(GTK_CONTAINER(scrolled_window), box_viewport);
+    gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
 
     gtk_widget_set_size_request(menu, margin, -1);
+
+    GtkWidget *right_menu = gtk_event_box_new();
+    gtk_widget_set_name(right_menu, "menu_right");
+
+    // TODO: Vertically resizeable right menu
+    gtk_widget_set_size_request(right_menu, margin, gdk_screen_height());
+
+    gtk_container_add(GTK_CONTAINER(right_menu), right_menu_expander);
+    gtk_text_view_add_child_in_window(GTK_TEXT_VIEW(text_view),         
+                                      right_menu,
+                                      GTK_TEXT_WINDOW_RIGHT,            
+                                      0, 0);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                     GTK_POLICY_NEVER, GTK_POLICY_ALWAYS);
 }

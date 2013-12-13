@@ -17,8 +17,8 @@ GtkWindow {
 	background: #333;
 }
 
-#main_menu_left {
-	background: #300;
+#menu_right {
+	background: #333;
 }
 
 GtkButton {

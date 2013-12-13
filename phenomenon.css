@@ -58,7 +58,7 @@ GtkButton:hover {
 }
 
 #main_text_view:selected {
-	background: #BBB;
+	background: @hover_color;
 }
 
 .separator {

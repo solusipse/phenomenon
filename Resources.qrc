@@ -3,5 +3,6 @@
         <file>icons/cog.png</file>
         <file>icons/xing.png</file>
         <file>icons/file-code.png</file>
+        <file>icons/times.png</file>
     </qresource>
 </RCC>

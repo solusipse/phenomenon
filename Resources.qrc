@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/cog.png</file>
+        <file>icons/xing.png</file>
+        <file>icons/file-code.png</file>
+    </qresource>
+</RCC>

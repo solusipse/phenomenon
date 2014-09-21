@@ -2,10 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QFileDialog>
 
 #include "theme.h"
 #include "utilities.h"
+#include "stylesheets.h"
 
 namespace Ui {
 class MainWindow;

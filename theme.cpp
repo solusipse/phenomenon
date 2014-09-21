@@ -1,12 +1,18 @@
 #include "theme.h"
 
-Theme::Theme()
-{
+Theme::Theme(Ui::MainWindow *ui) {
+    this->miscSettings(ui);
     this->setDarkTheme();
 }
 
-void Theme::setDarkTheme()
-{
+void Theme::miscSettings(Ui::MainWindow *ui) {
+    ui->centralWidget->layout()->setContentsMargins(0,0,0,0);
+    ui->plainTextEdit->setFont(QFont("Cantarell", 14));
+    ui->plainTextEdit->setStyleSheet("background-color: #666; color: #DDD;");
+    ui->stylesList->setStyleSheet("background-color: #333; color: #DDD;");
+}
+
+void Theme::setDarkTheme() {
     qApp->setStyle(QStyleFactory::create("Fusion"));
     QPalette p = qApp->palette();
     p.setColor(QPalette::Window, QColor(53,53,53));

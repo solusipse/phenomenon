@@ -2,6 +2,7 @@
 
 Utilities::Utilities()
 {
+
 }
 
 QString Utilities::openCssFile(QString path) {

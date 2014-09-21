@@ -5,6 +5,8 @@
 #include <QFile>
 #include <QTextStream>
 
+#include "mainwindow.h"
+
 class Utilities
 {
 public:

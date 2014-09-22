@@ -6,10 +6,16 @@ Theme::Theme(Ui::MainWindow *ui) {
 }
 
 void Theme::miscSettings(Ui::MainWindow *ui) {
+    QFont font = QFont("Ubuntu Mono", 14);
+
     ui->centralWidget->layout()->setContentsMargins(0,0,0,0);
-    ui->plainTextEdit->setFont(QFont("Cantarell", 14));
+    ui->plainTextEdit->setFont(font);
     ui->plainTextEdit->setStyleSheet("background-color: #666; color: #DDD;");
     ui->stylesList->setStyleSheet("background-color: #333; color: #DDD;");
+
+
+    QFontMetrics metrics(font);
+    ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
 }
 
 void Theme::setDarkTheme() {

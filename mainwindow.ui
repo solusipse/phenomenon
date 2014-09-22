@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>655</width>
+    <width>809</width>
     <height>447</height>
    </rect>
   </property>
@@ -35,12 +35,20 @@
             <property name="text">
              <string>...</string>
             </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/new.png</normaloff>:/icons/new.png</iconset>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="toolButton_7">
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/open.png</normaloff>:/icons/open.png</iconset>
             </property>
            </widget>
           </item>
@@ -49,12 +57,20 @@
             <property name="text">
              <string>...</string>
             </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="toolButton_5">
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/save-as.png</normaloff>:/icons/save-as.png</iconset>
             </property>
            </widget>
           </item>
@@ -67,12 +83,20 @@
             <property name="text">
              <string>...</string>
             </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="toolButton_15">
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/cut.png</normaloff>:/icons/cut.png</iconset>
             </property>
            </widget>
           </item>
@@ -81,12 +105,20 @@
             <property name="text">
              <string>...</string>
             </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/copy.png</normaloff>:/icons/copy.png</iconset>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QToolButton" name="toolButton_13">
             <property name="text">
              <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Resources.qrc">
+              <normaloff>:/icons/paste.png</normaloff>:/icons/paste.png</iconset>
             </property>
            </widget>
           </item>

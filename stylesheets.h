@@ -1,12 +1,12 @@
 #ifndef STYLESHEETS_H
 #define STYLESHEETS_H
 
-#include <QFileDialog>
 #include <QString>
 #include <QVector>
 #include <QApplication>
 
 #include "utilities.h"
+#include "ui_mainwindow.h"
 
 
 class Stylesheets
@@ -14,9 +14,10 @@ class Stylesheets
 public:
     Stylesheets();
     void addStylesheet(QString path, QString contents);
-    void removeStylesheet(int id);
+    void removeStylesheet(QString path);
     void addStylesheetFromFile(Ui::MainWindow *ui, QString stylesheet);
     QString getStylesheets();
+    QString createStylesheetLink(QString path);
     void addStylesheetToList(Ui::MainWindow *ui, QString path);
     void updateCss();
 private:

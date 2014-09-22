@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
 
 #include "theme.h"
 #include "utilities.h"
@@ -25,7 +26,8 @@ class MainWindow : public QMainWindow
         void on_plainTextEdit_textChanged();
         void on_cssButton_clicked();
 
-        void on_cssRefreshButton_clicked();
+        void on_removeStylesheetButton_clicked();
+
 
 private:
         Ui::MainWindow *ui;

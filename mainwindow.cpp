@@ -32,13 +32,19 @@ void MainWindow::on_plainTextEdit_textChanged()
 void MainWindow::on_cssButton_clicked()
 {
     QString stylesheet = QFileDialog::getOpenFileName(this,
-         tr("Open custom stylesheet"), "", tr("Stylesheets (*.css)"));
+         tr("Open custom stylesheet"), "",
+         tr("Stylesheets (*.css)"));
     styles.addStylesheetFromFile(this->ui, stylesheet);
     this->refreshTextEdit();
 }
 
-void MainWindow::on_cssRefreshButton_clicked()
+void MainWindow::on_removeStylesheetButton_clicked()
 {
-    // TODO: reload all loaded files (paths and urls)
-    styles.updateCss();
+    if (!ui->stylesList->selectedItems().empty())
+    {
+        QListWidgetItem *selectedItem = ui->stylesList->currentItem();
+        styles.removeStylesheet(selectedItem->text());
+        delete selectedItem;
+        this->refreshTextEdit();
+    }
 }

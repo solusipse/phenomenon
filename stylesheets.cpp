@@ -11,9 +11,16 @@ void Stylesheets::addStylesheet(QString path, QString contents) {
     this->updateCss();
 }
 
+QString Stylesheets::createStylesheetLink(QString path) {
+    QString link = "<link rel='stylesheet' type='text/css' href='";
+    link.append(path);
+    link.append("'>");
+    return link;
+}
+
 void Stylesheets::addStylesheetFromFile(Ui::MainWindow *ui, QString path) {
-    QString contents = Utilities().openCssFile(path);
-    this->addStylesheet(path, contents);
+    QString link = this->createStylesheetLink(path.prepend("file:"));
+    this->addStylesheet(path, link);
     this->addStylesheetToList(ui, path);
 }
 
@@ -22,12 +29,18 @@ void Stylesheets::addStylesheetToList(Ui::MainWindow *ui, QString path) {
 }
 
 void Stylesheets::updateCss() {
-    cssStyle = "<style>";
+    cssStyle = "";
     for(int i = 0; i < stylesList.size(); i++)
         this->cssStyle.append(stylesList[i][1]);
-    cssStyle.append("</style>");
 }
 
 QString Stylesheets::getStylesheets() {
     return this->cssStyle;
+}
+
+void Stylesheets::removeStylesheet(QString path) {
+    for(int i = 0; i < stylesList.size(); i++)
+        if (path == stylesList[i][0])
+            stylesList.remove(i);
+    this->updateCss();
 }

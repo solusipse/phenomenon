@@ -2,7 +2,6 @@
 #define THEME_H
 
 #include <QStyleFactory>
-#include <QMainWindow>
 #include <QApplication>
 #include "ui_mainwindow.h"
 

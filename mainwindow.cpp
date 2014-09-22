@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     Theme(this->ui);
+
+    //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
 }
 
 MainWindow::~MainWindow()
@@ -34,6 +36,7 @@ void MainWindow::on_cssButton_clicked()
     QString stylesheet = QFileDialog::getOpenFileName(this,
          tr("Open custom stylesheet"), "",
          tr("Stylesheets (*.css)"));
+    if (stylesheet.isEmpty()) return;
     styles.addStylesheetFromFile(this->ui, stylesheet);
     this->refreshTextEdit();
 }
@@ -47,4 +50,22 @@ void MainWindow::on_removeStylesheetButton_clicked()
         delete selectedItem;
         this->refreshTextEdit();
     }
+}
+
+void MainWindow::on_cssMoveUpButton_clicked()
+{
+    if (ui->stylesList->currentRow() > 0)
+    {
+        styles.moveStyleUp(ui);
+        this->refreshTextEdit();
+    }
+}
+
+void MainWindow::on_addStyleFromUrlButton_clicked()
+{
+    QString input = QInputDialog::getText(this,
+        tr("Load Stylesheet from URL"),
+        tr("URL:"), QLineEdit::Normal, "http://");
+    if (input == "http://") return;
+    styles.addStylesheetFromUrl(ui, input);
 }

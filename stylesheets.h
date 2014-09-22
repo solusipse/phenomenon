@@ -13,17 +13,20 @@ class Stylesheets
 {
 public:
     Stylesheets();
-    void addStylesheet(QString path, QString contents);
+    void addStylesheet(QString path, QString link);
     void removeStylesheet(QString path);
-    void addStylesheetFromFile(Ui::MainWindow *ui, QString stylesheet);
+    void addStylesheetFromFile(Ui::MainWindow *ui, QString path);
+    void addStylesheetFromUrl(Ui::MainWindow *ui, QString path);
+    void moveStyleUp(Ui::MainWindow *ui);
     QString getStylesheets();
-    QString createStylesheetLink(QString path);
     void addStylesheetToList(Ui::MainWindow *ui, QString path);
-    void updateCss();
+
 private:
+    void updateCss();
+    QString createStylesheetLink(QString path);
     QVector< QVector<QString> > stylesList;
-    // this variable contains all stylesheets combined
     QString cssStyle;
+    void updateList(Ui::MainWindow *ui);
 };
 
 #endif // STYLESHEETS_H

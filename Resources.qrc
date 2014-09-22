@@ -6,5 +6,6 @@
         <file>icons/times.png</file>
         <file>icons/globe.png</file>
         <file>icons/refresh.png</file>
+        <file>icons/arrow-up.png</file>
     </qresource>
 </RCC>

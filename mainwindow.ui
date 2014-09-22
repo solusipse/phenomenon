@@ -154,7 +154,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="toolButton">
+           <widget class="QToolButton" name="addStyleFromUrlButton">
             <property name="text">
              <string>...</string>
             </property>
@@ -165,13 +165,13 @@
            </widget>
           </item>
           <item>
-           <widget class="QToolButton" name="cssRefreshButton">
+           <widget class="QToolButton" name="cssMoveUpButton">
             <property name="text">
              <string>...</string>
             </property>
             <property name="icon">
              <iconset resource="Resources.qrc">
-              <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
+              <normaloff>:/icons/arrow-up.png</normaloff>:/icons/arrow-up.png</iconset>
             </property>
            </widget>
           </item>
@@ -246,7 +246,7 @@
        <widget class="QPlainTextEdit" name="plainTextEdit">
         <property name="minimumSize">
          <size>
-          <width>408</width>
+          <width>300</width>
           <height>0</height>
          </size>
         </property>
@@ -273,6 +273,18 @@
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QWebView" name="webView">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="url">
         <url>
          <string>about:blank</string>

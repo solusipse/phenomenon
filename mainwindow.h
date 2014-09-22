@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QInputDialog>
 
 #include "theme.h"
 #include "utilities.h"
@@ -28,6 +29,10 @@ class MainWindow : public QMainWindow
 
         void on_removeStylesheetButton_clicked();
 
+
+        void on_cssMoveUpButton_clicked();
+
+        void on_addStyleFromUrlButton_clicked();
 
 private:
         Ui::MainWindow *ui;

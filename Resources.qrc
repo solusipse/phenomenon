@@ -4,5 +4,7 @@
         <file>icons/xing.png</file>
         <file>icons/file-code.png</file>
         <file>icons/times.png</file>
+        <file>icons/globe.png</file>
+        <file>icons/refresh.png</file>
     </qresource>
 </RCC>

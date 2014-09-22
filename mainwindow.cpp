@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+Stylesheets styles = Stylesheets();
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,16 +16,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::refreshTextEdit() {
+    this->on_plainTextEdit_textChanged();
+}
+
 void MainWindow::on_plainTextEdit_textChanged()
 {
     /* Now it's simple html-only rendering method. */
     QString inputText = ui->plainTextEdit->toPlainText();
-    ui->webView->setHtml(inputText);
+    QString outputText = styles.getStylesheets();
+    outputText.append(inputText);
+    ui->webView->setHtml(outputText);
 }
 
 void MainWindow::on_cssButton_clicked()
 {
     QString stylesheet = QFileDialog::getOpenFileName(this,
          tr("Open custom stylesheet"), "", tr("Stylesheets (*.css)"));
-    Stylesheets().addStylesheetFromFile(this->ui, stylesheet);
+    styles.addStylesheetFromFile(this->ui, stylesheet);
+    this->refreshTextEdit();
+}
+
+void MainWindow::on_cssRefreshButton_clicked()
+{
+    // TODO: reload all loaded files (paths and urls)
+    styles.updateCss();
 }

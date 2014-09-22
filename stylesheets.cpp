@@ -1,7 +1,6 @@
 #include "stylesheets.h"
 
 Stylesheets::Stylesheets() {
-
 }
 
 void Stylesheets::addStylesheet(QString path, QString contents) {
@@ -9,6 +8,7 @@ void Stylesheets::addStylesheet(QString path, QString contents) {
     style.append(path);
     style.append(contents);
     this->stylesList.append(style);
+    this->updateCss();
 }
 
 void Stylesheets::addStylesheetFromFile(Ui::MainWindow *ui, QString path) {
@@ -22,5 +22,12 @@ void Stylesheets::addStylesheetToList(Ui::MainWindow *ui, QString path) {
 }
 
 void Stylesheets::updateCss() {
+    cssStyle = "<style>";
+    for(int i = 0; i < stylesList.size(); i++)
+        this->cssStyle.append(stylesList[i][1]);
+    cssStyle.append("</style>");
+}
 
+QString Stylesheets::getStylesheets() {
+    return this->cssStyle;
 }

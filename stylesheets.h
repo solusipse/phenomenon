@@ -18,11 +18,11 @@ public:
     void addStylesheetFromFile(Ui::MainWindow *ui, QString stylesheet);
     QString getStylesheets();
     void addStylesheetToList(Ui::MainWindow *ui, QString path);
+    void updateCss();
 private:
     QVector< QVector<QString> > stylesList;
     // this variable contains all stylesheets combined
     QString cssStyle;
-    void updateCss();
 };
 
 #endif // STYLESHEETS_H

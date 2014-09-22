@@ -12,6 +12,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = phenomenon
 TEMPLATE = app
 
+SUBDIRS += sundown
+sundownlib.makefile = sundown/Makefile
+
+QMAKE_EXTRA_TARGETS += sundown
 
 SOURCES += main.cpp\
         mainwindow.cpp \

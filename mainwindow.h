@@ -10,6 +10,10 @@
 #include "stylesheets.h"
 #include "ui_mainwindow.h"
 
+extern "C" {
+
+}
+
 namespace Ui {
 class MainWindow;
 }

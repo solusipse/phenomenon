@@ -13,7 +13,6 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
     ui->plainTextEdit->setStyleSheet("background-color: #666; color: #DDD;");
     ui->stylesList->setStyleSheet("background-color: #333; color: #DDD;");
 
-
     QFontMetrics metrics(font);
     ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
 }

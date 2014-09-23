@@ -1,12 +1,16 @@
 phenomenon
 ==========
 
-Not usable in current state.
+Phenomenon is open source, desktop `WYSIWYG editor` for `Markdown` files. It is built with `Qt 5` and rendering mechanism comes from `C` library - `Hoedown`.
 
----------------------------
+Please note that in current state `phenomenon` is **NOT USABLE**.
 
-Icons used in this project are licensed under Creative Commons license:
+Interface
+---------
 
-http://www.gentleface.com/free_icon_set.html
+![interface](http://solusipse.net/misc/phenomenon.png)
 
-http://creativecommons.org/licenses/by-nc/3.0/
+License
+---------
+
+Phenomenon is MIT licensed.

@@ -1,3 +1,3 @@
-[submodule "hoedown"]
+[submodule "libs/hoedown"]
 	path = libs/hoedown
 	url = https://github.com/hoedown/hoedown.git

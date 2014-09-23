@@ -2,7 +2,6 @@
 
 #include <qDebug>
 
-
 Markdown::Markdown()
 {
 }
@@ -42,8 +41,8 @@ QString Markdown::parseMarkdown(QString input) {
         std::string stdStringInput = input.toUtf8().constData();
         unsigned char* charInput = (unsigned char *)stdStringInput.c_str();
 
-        ib->data = charInput;
-        ib->size = stdStringInput.size();
+        ib->data = charInput + ib->size;
+        ib->size = strlen((char*)charInput);
 
     // eori
 
@@ -53,24 +52,17 @@ QString Markdown::parseMarkdown(QString input) {
 
     std::string outputStdString = (char*) ob->data;
 
+    // this is for trimming output buffer
+    outputStdString.erase(ob->size, outputStdString.length());
+
     hoedown_document_free(document);
     hoedown_buffer_free(ob);
     renderer_free(renderer);
+    free(ib);
 
     QString output = QString::fromStdString(outputStdString);
-
-    // TODO: - fix buffer issues
-    //       - fix malloc issues
 
     qDebug() << output;
 
     return output;
-
-    /*
-    hoedown_buffer_free(ib);
-    hoedown_buffer_free(ob);
-
-    hoedown_document_free(document);
-    renderer_free(renderer);
-    */
 }

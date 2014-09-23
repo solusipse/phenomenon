@@ -9,6 +9,7 @@
 #include "utilities.h"
 #include "stylesheets.h"
 #include "ui_mainwindow.h"
+#include "markdown.h"
 
 extern "C" {
 

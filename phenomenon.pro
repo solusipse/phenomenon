@@ -17,16 +17,20 @@ sundownlib.makefile = sundown/Makefile
 
 QMAKE_EXTRA_TARGETS += sundown
 
+LIBS += -Llibs/hoedown -lhoedown
+
 SOURCES += main.cpp\
         mainwindow.cpp \
     theme.cpp \
     utilities.cpp \
-    stylesheets.cpp
+    stylesheets.cpp \
+    markdown.cpp
 
 HEADERS  += mainwindow.h \
     theme.h \
     utilities.h \
-    stylesheets.h
+    stylesheets.h \
+    markdown.h
 
 FORMS    += mainwindow.ui
 

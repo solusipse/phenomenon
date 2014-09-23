@@ -28,7 +28,10 @@ void MainWindow::on_plainTextEdit_textChanged()
     QString inputText = ui->plainTextEdit->toPlainText();
     QString outputText = styles.getStylesheets();
     outputText.append(inputText);
-    ui->webView->setHtml(outputText);
+
+    QString parsed = Markdown().parseMarkdown(outputText);
+
+    ui->webView->setHtml(parsed);
 }
 
 void MainWindow::on_cssButton_clicked()

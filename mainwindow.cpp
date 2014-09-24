@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-Stylesheets styles = Stylesheets();
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -24,14 +22,9 @@ void MainWindow::refreshTextEdit() {
 
 void MainWindow::on_plainTextEdit_textChanged()
 {
-    /* Now it's simple html-only rendering method. */
     QString inputText = ui->plainTextEdit->toPlainText();
-    QString outputText = styles.getStylesheets();
-    outputText.append(inputText);
-
-    QString parsed = Markdown().parseMarkdown(outputText);
-
-    ui->webView->setHtml(parsed);
+    QString outputText = utils.prepareHtml(styles.getStylesheets(), inputText);
+    ui->webView->setHtml(outputText);
 }
 
 void MainWindow::on_cssButton_clicked()

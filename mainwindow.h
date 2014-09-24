@@ -41,6 +41,8 @@ class MainWindow : public QMainWindow
 
 private:
         Ui::MainWindow *ui;
+        Utilities utils;
+        Stylesheets styles;
 };
 
 #endif // MAINWINDOW_H

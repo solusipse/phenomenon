@@ -15,5 +15,6 @@
         <file>icons/undo.png</file>
         <file>icons/copy.png</file>
         <file>icons/paste.png</file>
+        <file>misc/template.html</file>
     </qresource>
 </RCC>

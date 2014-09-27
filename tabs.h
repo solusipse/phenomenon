@@ -12,14 +12,17 @@ class Tabs
         Tabs();
         void close(int i);
         void addToTabsList(Tab *t);
+        int currentIndex();
+        Tab *current();
+        Tab *add();
 };
 
 class Tab
 {
     public:
-        Tab(QString title = "untitled");
+        Tab(QString title = "untitled", QString text = "");
         QString title;
-        QString contents;
+        QString text;
         QVector< QVector<QString> > stylesList;
 
         void close();

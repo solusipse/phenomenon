@@ -12,9 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     commonUtils.ui = ui;
     commonUtils.htmlTemplate = commonUtils.getResource("misc/template.html");
 
-    Tab();
-    Tab();
-
+    Tabs().add();
+    Tabs().add();
 
     //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
 }
@@ -26,12 +25,13 @@ void MainWindow::manualConnectSlots() {
 }
 
 void MainWindow::onTabChanged(int index) {
-    qDebug() << index;
+    ui->plainTextEdit->setPlainText(Tabs().current()->text);
 }
 
 void MainWindow::addNewTab(int index) {
     // create new tab only if user clicked on empty space
-    if (index == -1) Tab();
+    // TODO: switch to new tab
+    if (index == -1) Tabs().add();
 }
 
 void MainWindow::deleteTab (int index) {
@@ -50,6 +50,7 @@ void MainWindow::refreshTextEdit() {
 void MainWindow::on_plainTextEdit_textChanged()
 {
     QString inputText = ui->plainTextEdit->toPlainText();
+    Tabs().current()->text = inputText;
     QString outputText = commonUtils.prepareHtml(styles.getStylesheets(), inputText);
     ui->webView->setHtml(outputText);
 }

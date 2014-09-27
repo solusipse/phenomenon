@@ -1,5 +1,7 @@
 #include "theme.h"
 
+#include <QSplitter>
+
 Theme::Theme(Ui::MainWindow *ui) {
     this->miscSettings(ui);
     this->setDarkTheme();
@@ -17,6 +19,20 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
 
     ui->tabPanel->addTab("untitled");
     ui->tabPanel->addTab("untitled");
+
+    QSplitter *splitter = new QSplitter(ui->customSplitter);
+    splitter->addWidget(ui->plainTextEdit);
+    splitter->addWidget(ui->webView);
+
+    QVBoxLayout *vbox = new QVBoxLayout;
+    vbox->addWidget(splitter);
+
+    ui->splitterBox->setLayout(vbox);
+    vbox->setContentsMargins(0,0,0,0);
+
+    splitter->setCollapsible(0, false);
+    splitter->setCollapsible(1, false);
+
 
 }
 

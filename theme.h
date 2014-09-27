@@ -15,7 +15,7 @@ class Theme
         void setDarkTheme();
         void miscSettings(Ui::MainWindow *ui);
         void loadMainCss();
-
+        void createSplitter(Ui::MainWindow *ui);
 };
 
 #endif // THEME_H

@@ -24,13 +24,15 @@ SOURCES += main.cpp\
     theme.cpp \
     utilities.cpp \
     stylesheets.cpp \
-    markdown.cpp
+    markdown.cpp \
+    tabs.cpp
 
 HEADERS  += mainwindow.h \
     theme.h \
     utilities.h \
     stylesheets.h \
-    markdown.h
+    markdown.h \
+    tabs.h
 
 FORMS    += mainwindow.ui
 

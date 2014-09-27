@@ -1,7 +1,5 @@
 #include "markdown.h"
 
-#include <qDebug>
-
 Markdown::Markdown()
 {
 }
@@ -57,8 +55,5 @@ QString Markdown::parseMarkdown(QString input) {
     free(ib);
 
     QString output = QString::fromStdString(outputStdString);
-
-    qDebug() << output;
-
     return output;
 }

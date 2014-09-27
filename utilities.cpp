@@ -1,12 +1,14 @@
 #include "utilities.h"
 
+Utilities commonUtils;
+
 Utilities::Utilities()
 {
-    htmlTemplate = getResource("misc/template.html");
+
 }
 
 QString Utilities::prepareHtml(QString styles, QString input) {
-    QString html = this->htmlTemplate;
+    QString html = htmlTemplate;
     html.replace("<!-- styles -->", styles);
     html.replace("<!-- contents -->", Markdown().parseMarkdown(input));
 

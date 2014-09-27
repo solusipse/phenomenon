@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,7 +7,35 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     Theme(this->ui);
 
+    manualConnectSlots();
+
+    commonUtils.ui = ui;
+    commonUtils.htmlTemplate = commonUtils.getResource("misc/template.html");
+
+    Tab();
+    Tab();
+
+
     //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
+}
+
+void MainWindow::manualConnectSlots() {
+    connect(ui->tabPanel, SIGNAL(tabCloseRequested(int)), this, SLOT(deleteTab(int)));
+    connect(ui->tabPanel, SIGNAL(tabBarDoubleClicked(int)), this, SLOT(addNewTab(int)));
+    connect(ui->tabPanel, SIGNAL(currentChanged(int)), this, SLOT(onTabChanged(int)));
+}
+
+void MainWindow::onTabChanged(int index) {
+    qDebug() << index;
+}
+
+void MainWindow::addNewTab(int index) {
+    // create new tab only if user clicked on empty space
+    if (index == -1) Tab();
+}
+
+void MainWindow::deleteTab (int index) {
+    Tabs().close(index);
 }
 
 MainWindow::~MainWindow()
@@ -23,7 +50,7 @@ void MainWindow::refreshTextEdit() {
 void MainWindow::on_plainTextEdit_textChanged()
 {
     QString inputText = ui->plainTextEdit->toPlainText();
-    QString outputText = utils.prepareHtml(styles.getStylesheets(), inputText);
+    QString outputText = commonUtils.prepareHtml(styles.getStylesheets(), inputText);
     ui->webView->setHtml(outputText);
 }
 

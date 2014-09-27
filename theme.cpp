@@ -18,8 +18,8 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
     QFontMetrics metrics(font);
     ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
 
-    ui->tabPanel->addTab("untitled");
-    ui->tabPanel->addTab("untitled");
+    //ui->tabPanel->addTab("untitled");
+    //ui->tabPanel->addTab("untitled");
 
     ui->tabPanel->setTabsClosable(true);
     ui->tabPanel->setMovable(true);
@@ -52,5 +52,5 @@ void Theme::setDarkTheme() {
 }
 
 void Theme::loadMainCss() {
-    qApp->setStyleSheet( Utilities().getResource("misc/default.css") );
+    qApp->setStyleSheet( commonUtils.getResource("misc/default.css") );
 }

@@ -394,6 +394,9 @@ QTabBar::tab:!selected
     color: #b1b1b1;
     margin-top: 3px;
     background-color: #444;
+    border-right-style: solid;
+    border-color: #333;
+    border-width: 3px;
 }
 
 QTabBar::tab:selected
@@ -475,6 +478,8 @@ QTabBar::close-button {
     margin-top: 3px;
     margin-left: 3px;
     background-image: url(":/icons/close.png");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 QTabBar::close-button:hover {

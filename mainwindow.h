@@ -10,6 +10,7 @@
 #include "stylesheets.h"
 #include "ui_mainwindow.h"
 #include "markdown.h"
+#include "tabs.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,11 +31,14 @@ class MainWindow : public QMainWindow
         void on_removeStylesheetButton_clicked();
         void on_cssMoveUpButton_clicked();
         void on_addStyleFromUrlButton_clicked();
+        void deleteTab(int index);
+        void addNewTab(int index);
+        void onTabChanged(int index);
 
-private:
+    private:
         Ui::MainWindow *ui;
-        Utilities utils;
         Stylesheets styles;
+        void manualConnectSlots();
 };
 
 #endif // MAINWINDOW_H

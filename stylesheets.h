@@ -17,9 +17,9 @@ public:
     void removeStylesheet(QString path);
     void addStylesheetFromFile(Ui::MainWindow *ui, QString path);
     void addStylesheetFromUrl(Ui::MainWindow *ui, QString path);
+    void addStylesheetToList(Ui::MainWindow *ui, QString path);
     void moveStyleUp(Ui::MainWindow *ui);
     QString getStylesheets();
-    void addStylesheetToList(Ui::MainWindow *ui, QString path);
 
 private:
     void updateCss();

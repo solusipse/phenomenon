@@ -13,12 +13,11 @@ class Utilities
 {
 public:
     Utilities();
-    QString openCssFile(QString path);
     QString prepareHtml(QString styles, QString input);
+    QString getResource(QString path);
     QString htmlTemplate;
 private:
     QString parseTemplate();
-    QString getTemplate();
 };
 
 #endif // UTILITIES_H

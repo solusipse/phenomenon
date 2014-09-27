@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Phenomenon Alpha</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">s</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
@@ -275,19 +278,68 @@
        </layout>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="plainTextEdit">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>0</height>
-         </size>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="contextMenuPolicy">
+         <enum>Qt::ActionsContextMenu</enum>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
         </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
+        <property name="locale">
+         <locale language="Polish" country="Poland"/>
         </property>
+        <property name="tabPosition">
+         <enum>QTabWidget::North</enum>
+        </property>
+        <property name="tabShape">
+         <enum>QTabWidget::Rounded</enum>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <property name="usesScrollButtons">
+         <bool>false</bool>
+        </property>
+        <property name="documentMode">
+         <bool>true</bool>
+        </property>
+        <property name="tabsClosable">
+         <bool>false</bool>
+        </property>
+        <property name="movable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>untitled</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QPlainTextEdit" name="plainTextEdit">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>Tab 2</string>
+         </attribute>
+        </widget>
        </widget>
       </item>
       <item>
@@ -316,6 +368,9 @@
          <width>300</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
        </property>
        <property name="url">
         <url>

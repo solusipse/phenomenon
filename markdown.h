@@ -17,8 +17,6 @@ class Markdown
 public:
     Markdown();
     QString parseMarkdown(QString input);
-private:
-    void initializeParser();
 };
 
 

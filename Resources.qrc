@@ -16,5 +16,6 @@
         <file>icons/copy.png</file>
         <file>icons/paste.png</file>
         <file>misc/template.html</file>
+        <file>misc/default.css</file>
     </qresource>
 </RCC>

@@ -11,10 +11,6 @@
 #include "ui_mainwindow.h"
 #include "markdown.h"
 
-extern "C" {
-
-}
-
 namespace Ui {
 class MainWindow;
 }
@@ -31,12 +27,8 @@ class MainWindow : public QMainWindow
     private slots:
         void on_plainTextEdit_textChanged();
         void on_cssButton_clicked();
-
         void on_removeStylesheetButton_clicked();
-
-
         void on_cssMoveUpButton_clicked();
-
         void on_addStyleFromUrlButton_clicked();
 
 private:

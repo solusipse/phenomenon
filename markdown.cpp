@@ -10,10 +10,6 @@ Markdown::Markdown()
 #define DEF_OUNIT 64
 #define DEF_MAX_NESTING 16
 
-void Markdown::initializeParser() {
-
-}
-
 QString Markdown::parseMarkdown(QString input) {
 
     if (input == "") input.append(" ");

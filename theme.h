@@ -3,6 +3,8 @@
 
 #include <QStyleFactory>
 #include <QApplication>
+#include <QResource>
+#include "utilities.h"
 #include "ui_mainwindow.h"
 
 class Theme
@@ -12,6 +14,7 @@ class Theme
     private:
         void setDarkTheme();
         void miscSettings(Ui::MainWindow *ui);
+        void loadMainCss();
 
 };
 

@@ -3,6 +3,7 @@
 Theme::Theme(Ui::MainWindow *ui) {
     this->miscSettings(ui);
     this->setDarkTheme();
+    this->loadMainCss();
 }
 
 void Theme::miscSettings(Ui::MainWindow *ui) {
@@ -10,11 +11,11 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
 
     ui->centralWidget->layout()->setContentsMargins(0,0,0,0);
     ui->plainTextEdit->setFont(font);
-    ui->plainTextEdit->setStyleSheet("background-color: #666; color: #DDD;");
-    ui->stylesList->setStyleSheet("background-color: #333; color: #DDD;");
 
     QFontMetrics metrics(font);
     ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
+
+    ui->tabWidget->removeTab(1);
 }
 
 void Theme::setDarkTheme() {
@@ -25,5 +26,12 @@ void Theme::setDarkTheme() {
     p.setColor(QPalette::Highlight, QColor(66,66,66));
     p.setColor(QPalette::ButtonText, QColor(155,155,155));
     p.setColor(QPalette::WindowText, QColor(125,155,155));
+    p.setColor(QPalette::Light, QColor(51,51,51));
     qApp->setPalette(p);
+
+}
+
+
+void Theme::loadMainCss() {
+    qApp->setStyleSheet( Utilities().getResource("misc/default.css") );
 }

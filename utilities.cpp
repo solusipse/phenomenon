@@ -2,7 +2,7 @@
 
 Utilities::Utilities()
 {
-    htmlTemplate = getTemplate();
+    htmlTemplate = getResource("misc/template.html");
 }
 
 QString Utilities::prepareHtml(QString styles, QString input) {
@@ -13,18 +13,10 @@ QString Utilities::prepareHtml(QString styles, QString input) {
     return html;
 }
 
-QString Utilities::getTemplate() {
-    const char *i = (const char *) QResource("./misc/template.html").data();
-    return QString::fromUtf8(i);
-}
-
-QString Utilities::openCssFile(QString path) {
-    QFile file(path);
-
+QString Utilities::getResource(QString path) {
+    QFile file(path.prepend(":/"));
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return "error";
-
     QTextStream in(&file);
     return in.readAll();
 }
-

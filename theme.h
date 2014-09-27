@@ -4,6 +4,8 @@
 #include <QStyleFactory>
 #include <QApplication>
 #include <QResource>
+#include <QSplitter>
+#include <QPushButton>
 #include "utilities.h"
 #include "ui_mainwindow.h"
 

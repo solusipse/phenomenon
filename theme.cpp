@@ -20,6 +20,9 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
 
     ui->tabPanel->addTab("untitled");
     ui->tabPanel->addTab("untitled");
+
+    ui->tabPanel->setTabsClosable(true);
+    ui->tabPanel->setMovable(true);
 }
 
 void Theme::createSplitter(Ui::MainWindow *ui) {

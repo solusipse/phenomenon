@@ -467,6 +467,16 @@ QWebView
 }
 
 QToolButton:hover {
-  border: 1px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
-  border-radius: 3px;
+    border: 1px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+    border-radius: 3px;
+}
+
+QTabBar::close-button {
+    margin-top: 3px;
+    margin-left: 3px;
+    background-image: url(":/icons/close.png");
+}
+
+QTabBar::close-button:hover {
+    background-image: url(":/icons/close-hover.png");
 }

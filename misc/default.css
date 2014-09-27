@@ -54,6 +54,7 @@ QMenuBar::item:pressed
 QMenu
 {
     border: 1px solid #000;
+    font-family: Ubuntu Mono;
 }
 
 QMenu::item
@@ -361,12 +362,10 @@ QProgressBar::chunk
 QTabBar::tab {
     color: #333;
     border: none;
-    border-radius: 0;
-    left: 12px;
     background-color: #ffa02f;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 3px;
+    padding-top: 5px;
     padding-bottom: 2px;
     margin-right: -1px;
 }
@@ -393,9 +392,8 @@ QTabBar::tab:first:!selected
 QTabBar::tab:!selected
 {
     color: #b1b1b1;
-    border-bottom-style: solid;
     margin-top: 3px;
-    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:.4 #343434);
+    background-color: #444;
 }
 
 QTabBar::tab:selected
@@ -409,9 +407,7 @@ QTabBar::tab:!selected:hover
 {
     /*border-top: 2px solid #ffaa00;
     padding-bottom: 3px;*/
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:0.4 #343434, stop:0.2 #343434, stop:0.1 #ffaa00);
+    color: #ffa02f;
 }
 
 QRadioButton::indicator:checked, QRadioButton::indicator:unchecked{

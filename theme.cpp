@@ -15,7 +15,9 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
     QFontMetrics metrics(font);
     ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
 
-    ui->tabWidget->removeTab(1);
+    ui->tabPanel->addTab("untitled");
+    ui->tabPanel->addTab("untitled");
+
 }
 
 void Theme::setDarkTheme() {

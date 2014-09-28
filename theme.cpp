@@ -23,6 +23,7 @@ void Theme::miscSettings(Ui::MainWindow *ui) {
 
     ui->tabPanel->setTabsClosable(true);
     ui->tabPanel->setMovable(true);
+    ui->tabPanel->setExpanding(false);
 }
 
 void Theme::createSplitter(Ui::MainWindow *ui) {

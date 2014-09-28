@@ -35,6 +35,7 @@ void MainWindow::addNewTab(int index) {
 }
 
 void MainWindow::deleteTab (int index) {
+    commonUtils.tabsList.remove(index);
     Tabs().close(index);
 }
 

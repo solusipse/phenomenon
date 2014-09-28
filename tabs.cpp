@@ -29,6 +29,10 @@ Tab *Tabs::add() {
     return new Tab();
 }
 
+Tab *Tabs::fromIndex(int i) {
+    return commonUtils.tabsList[i];
+}
+
 
 /* Tab class */
 // every tab is of this type

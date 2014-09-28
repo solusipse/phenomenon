@@ -22,10 +22,11 @@ void MainWindow::manualConnectSlots() {
     connect(ui->tabPanel, SIGNAL(tabCloseRequested(int)), this, SLOT(deleteTab(int)));
     connect(ui->tabPanel, SIGNAL(tabBarDoubleClicked(int)), this, SLOT(addNewTab(int)));
     connect(ui->tabPanel, SIGNAL(currentChanged(int)), this, SLOT(onTabChanged(int)));
+    // TODO: connect tabPanel with onTabMoved (not prototyped yet)
 }
 
 void MainWindow::onTabChanged(int index) {
-    ui->plainTextEdit->setPlainText(Tabs().current()->text);
+    ui->plainTextEdit->setPlainText(Tabs().fromIndex(index)->text);
 }
 
 void MainWindow::addNewTab(int index) {
@@ -35,6 +36,7 @@ void MainWindow::addNewTab(int index) {
 }
 
 void MainWindow::deleteTab (int index) {
+    delete Tabs().fromIndex(index);
     commonUtils.tabsList.remove(index);
     Tabs().close(index);
 }

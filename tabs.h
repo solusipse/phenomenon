@@ -15,6 +15,7 @@ class Tabs
         int currentIndex();
         Tab *current();
         Tab *add();
+        Tab *fromIndex(int i);
 };
 
 class Tab

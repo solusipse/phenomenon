@@ -24,3 +24,4 @@ QString Utilities::getResource(QString path) {
     QTextStream in(&file);
     return in.readAll();
 }
+

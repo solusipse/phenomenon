@@ -26,6 +26,7 @@ class MainWindow : public QMainWindow
         void deleteTab(int index);
         void addNewTab(int index);
         void onTabChanged(int index);
+        void on_panelButtonNewFile_clicked();
 
     private:
         Ui::MainWindow *ui;

@@ -113,4 +113,11 @@ void MainWindow::on_addStyleFromUrlButton_clicked()
     styles.addStylesheetFromUrl(input);
 }
 
+/* Main panel buttons signals */
+
+void MainWindow::on_panelButtonNewFile_clicked()
+{
+    Tabs().add();
+}
+
 /* SIGNALS END HERE */

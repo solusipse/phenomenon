@@ -14,6 +14,7 @@ QString Stylesheets::createStylesheetLink(QString path) {
 }
 
 void Stylesheets::addStylesheetFromFile(QString path) {
+    // TODO: don't add file that is already there
     new Stylesheet(path, createStylesheetLink(path.prepend("file:")));
 }
 
@@ -51,15 +52,16 @@ void Stylesheets::removeStylesheet(QString path) {
 }
 
 void Stylesheets::moveStyleUp(QString path) {
-    // TODO: fix this method
-    QString buffer;
+    Stylesheet *buffer;
     for(int i = 0; i < Tabs().current()->styles.size(); i++)
+    {
         if (path == Tabs().current()->styles[i]->path)
         {
-            buffer = Tabs().current()->styles[i-1]->path;
-            Tabs().current()->styles[i-1]->path = Tabs().current()->styles[i]->path;
-            Tabs().current()->styles[i]->path = buffer;
+            buffer = Tabs().current()->styles[i-1];
+            Tabs().current()->styles[i-1] = Tabs().current()->styles[i];
+            Tabs().current()->styles[i] = buffer;
         }
+    }
     this->update();
 }
 

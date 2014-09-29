@@ -1,14 +1,9 @@
-#include "stylesheets.h"
+﻿#include "stylesheets.h"
+
+#include "tabs.h"
+#include "utilities.h"
 
 Stylesheets::Stylesheets() {
-}
-
-void Stylesheets::addStylesheet(QString path, QString link) {
-    QVector<QString> style;
-    style.append(path);
-    style.append(link);
-    this->stylesList.append(style);
-    this->updateCss();
 }
 
 QString Stylesheets::createStylesheetLink(QString path) {
@@ -18,62 +13,67 @@ QString Stylesheets::createStylesheetLink(QString path) {
     return link;
 }
 
-void Stylesheets::addStylesheetFromFile(Ui::MainWindow *ui, QString path) {
-    QString link = this->createStylesheetLink(path.prepend("file:"));
-    this->addStylesheet(path, link);
-    this->addStylesheetToList(ui, path);
+void Stylesheets::addStylesheetFromFile(QString path) {
+    new Stylesheet(path, createStylesheetLink(path.prepend("file:")));
 }
 
-void Stylesheets::addStylesheetFromUrl(Ui::MainWindow *ui, QString path) {
-    QString link = this->createStylesheetLink(path);
-    this->addStylesheet(path, link);
-    this->addStylesheetToList(ui, path);
+void Stylesheets::addStylesheetFromUrl(QString path) {
+    new Stylesheet(path, createStylesheetLink(path));
 }
 
-void Stylesheets::addStylesheetToList(Ui::MainWindow *ui, QString path) {
-    ui->stylesList->addItem(path);
+void Stylesheets::addToWidget(QString path) {
+    commonUtils.ui->stylesList->addItem(path);
 }
 
 void Stylesheets::updateCss() {
-    cssStyle = "";
-    for(int i = 0; i < stylesList.size(); i++)
-        this->cssStyle.append(stylesList[i][1]);
+    this->cssStyle = "";
+    for(int i = 0; i < Tabs().current()->styles.size(); i++)
+        this->cssStyle.append(Tabs().current()->styles[i]->link);
+}
+
+void Stylesheets::update() {
+    this->updateCss();
+    this->updateList();
 }
 
 QString Stylesheets::getStylesheets() {
+    this->updateCss();
     return this->cssStyle;
 }
 
 void Stylesheets::removeStylesheet(QString path) {
-    for(int i = 0; i < stylesList.size(); i++)
-        if (path == stylesList[i][0])
-            stylesList.remove(i);
-    this->updateCss();
-}
-
-void Stylesheets::moveStyleUp(Ui::MainWindow *ui) {
-    QString path = ui->stylesList->currentItem()->text();
-
-    QVector<QString> buffer;
-    for(int i = 0; i < stylesList.size(); i++)
-        if (path == stylesList[i][0])
+    for(int i = 0; i < Tabs().current()->styles.size(); i++)
+        if (path == Tabs().current()->styles[i]->path)
         {
-            buffer = stylesList[i-1];
-            stylesList[i-1] = stylesList[i];
-            stylesList[i] = buffer;
+            delete Tabs().current()->styles[i];
+            Tabs().current()->styles.remove(i);
         }
-
-    updateCss();
-    updateList(ui);
-
 }
 
-void Stylesheets::updateList(Ui::MainWindow *ui) {
-    ui->stylesList->clear();
-    for(int i = 0; i < stylesList.size(); i++)
-        ui->stylesList->addItem(stylesList[i][0]);
+void Stylesheets::moveStyleUp(QString path) {
+    // TODO: fix this method
+    QString buffer;
+    for(int i = 0; i < Tabs().current()->styles.size(); i++)
+        if (path == Tabs().current()->styles[i]->path)
+        {
+            buffer = Tabs().current()->styles[i-1]->path;
+            Tabs().current()->styles[i-1]->path = Tabs().current()->styles[i]->path;
+            Tabs().current()->styles[i]->path = buffer;
+        }
+    this->update();
+}
+
+void Stylesheets::updateList() {
+    commonUtils.ui->stylesList->clear();
+    for(int i = 0; i < Tabs().current()->styles.size(); i++)
+        commonUtils.ui->stylesList->addItem(Tabs().current()->styles[i]->path);
 }
 
 // Stylesheet class
 
-
+Stylesheet::Stylesheet(QString path, QString link) {
+    this->path = path;
+    this->link = link;
+    Tabs().current()->styles.append(this);
+    Stylesheets().update();
+}

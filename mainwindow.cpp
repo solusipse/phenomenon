@@ -35,6 +35,7 @@ void MainWindow::manualConnectSlots() {
 // TABS
 void MainWindow::onTabChanged(int index) {
     ui->plainTextEdit->setPlainText(Tabs().fromIndex(index)->text);
+    Stylesheets().update();
 }
 
 void MainWindow::addNewTab(int index) {
@@ -69,7 +70,7 @@ void MainWindow::on_cssButton_clicked()
          tr("Open custom stylesheet"), "",
          tr("Stylesheets (*.css)"));
     if (stylesheet.isEmpty()) return;
-    styles.addStylesheetFromFile(this->ui, stylesheet);
+    styles.addStylesheetFromFile(stylesheet);
     this->refreshTextEdit();
 }
 
@@ -88,7 +89,8 @@ void MainWindow::on_cssMoveUpButton_clicked()
 {
     if (ui->stylesList->currentRow() > 0)
     {
-        styles.moveStyleUp(ui);
+        QListWidgetItem *selectedItem = ui->stylesList->currentItem();
+        styles.moveStyleUp(selectedItem->text());
         this->refreshTextEdit();
     }
 }
@@ -99,7 +101,7 @@ void MainWindow::on_addStyleFromUrlButton_clicked()
         tr("Load Stylesheet from URL"),
         tr("URL:"), QLineEdit::Normal, "http://");
     if (input == "http://") return;
-    styles.addStylesheetFromUrl(ui, input);
+    styles.addStylesheetFromUrl(input);
 }
 
 /* SIGNALS END HERE */

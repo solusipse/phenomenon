@@ -1,16 +1,9 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include <QString>
-#include <QFile>
-#include <QTextStream>
-#include <QResource>
-#include <QVector>
-
 #include "ui_mainwindow.h"
-#include "tabs.h"
-#include "stylesheets.h"
 #include "markdown.h"
+#include "tabs.h"
 
 class Utilities
 {

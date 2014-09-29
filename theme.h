@@ -1,13 +1,10 @@
 #ifndef THEME_H
 #define THEME_H
 
-#include <QStyleFactory>
-#include <QApplication>
-#include <QResource>
-#include <QSplitter>
-#include <QPushButton>
-#include "utilities.h"
+#include <QStyleFactory.h>
+
 #include "ui_mainwindow.h"
+#include "utilities.h"
 
 class Theme
 {

@@ -4,6 +4,8 @@
 #include <QString>
 #include <QVector>
 
+#include "stylesheets.h"
+
 class Tab;
 
 class Tabs
@@ -24,7 +26,7 @@ class Tab
         Tab(QString title = "untitled", QString text = "");
         QString title;
         QString text;
-        QVector< QVector<QString> > stylesList;
+        QVector< Stylesheet* > styles;
 
         void close();
         void index();

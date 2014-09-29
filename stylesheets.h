@@ -2,37 +2,36 @@
 #define STYLESHEETS_H
 
 #include <QString>
-#include <QVector>
-#include <QApplication>
 
-#include "utilities.h"
 #include "ui_mainwindow.h"
 
+class Stylesheet;
 
 class Stylesheets
 {
 public:
     Stylesheets();
-    void addStylesheet(QString path, QString link);
     void removeStylesheet(QString path);
-    void addStylesheetFromFile(Ui::MainWindow *ui, QString path);
-    void addStylesheetFromUrl(Ui::MainWindow *ui, QString path);
-    void addStylesheetToList(Ui::MainWindow *ui, QString path);
-    void moveStyleUp(Ui::MainWindow *ui);
+    void addStylesheetFromFile(QString path);
+    void addStylesheetFromUrl(QString path);
+    void addToWidget(QString path);
+    void moveStyleUp(QString path);
+    void add(Stylesheet style);
+    void update();
     QString getStylesheets();
+    QString createStylesheetLink(QString path);
 
 private:
-    void updateCss();
-    QString createStylesheetLink(QString path);
     QVector< QVector<QString> > stylesList;
     QString cssStyle;
-    void updateList(Ui::MainWindow *ui);
+    void updateList();
+    void updateCss();
 };
 
 class Stylesheet
 {
 public:
-    Stylesheet();
+    Stylesheet(QString path, QString link);
     QString path;
     QString link;
 };

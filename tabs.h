@@ -28,6 +28,7 @@ class Tab
 
         void close();
         void index();
+        int id();
 };
 
 #endif // TABS_H

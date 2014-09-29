@@ -10,6 +10,8 @@ Tabs::Tabs() {
 }
 
 void Tabs::close(int i) {
+    delete this->fromIndex(i);
+    commonUtils.tabsList.remove(i);
     commonUtils.ui->tabPanel->removeTab(i);
 }
 
@@ -45,6 +47,13 @@ Tab::Tab(QString title, QString text) {
 }
 
 void Tab::close() {
-    // TODO: get its own index
-    commonUtils.ui->tabPanel->removeTab(0);
+    Tabs().close(this->id());
+}
+
+int Tab::id() {
+    for(int i = 0; i < commonUtils.tabsList.length(); i++) {
+        if (commonUtils.tabsList[i] == this)
+            return i;
+    }
+    return -1;
 }

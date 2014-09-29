@@ -74,4 +74,6 @@ void Stylesheets::updateList(Ui::MainWindow *ui) {
         ui->stylesList->addItem(stylesList[i][0]);
 }
 
+// Stylesheet class
+
 

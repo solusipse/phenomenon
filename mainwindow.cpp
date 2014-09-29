@@ -1,22 +1,28 @@
 #include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     Theme(this->ui);
-
-    manualConnectSlots();
+    this->manualConnectSlots();
 
     commonUtils.ui = ui;
     commonUtils.htmlTemplate = commonUtils.getResource("misc/template.html");
 
+    // temporary, TODO: init method
     Tabs().add();
     Tabs().add();
 
     //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
 }
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+/* SIGNALS START HERE */
 
 void MainWindow::manualConnectSlots() {
     connect(ui->tabPanel, SIGNAL(tabCloseRequested(int)), this, SLOT(deleteTab(int)));
@@ -25,6 +31,8 @@ void MainWindow::manualConnectSlots() {
     // TODO: connect tabPanel with onTabMoved (not prototyped yet)
 }
 
+
+// TABS
 void MainWindow::onTabChanged(int index) {
     ui->plainTextEdit->setPlainText(Tabs().fromIndex(index)->text);
 }
@@ -36,16 +44,11 @@ void MainWindow::addNewTab(int index) {
 }
 
 void MainWindow::deleteTab (int index) {
-    delete Tabs().fromIndex(index);
-    commonUtils.tabsList.remove(index);
     Tabs().close(index);
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
 
+// TEXT EDIT
 void MainWindow::refreshTextEdit() {
     this->on_plainTextEdit_textChanged();
 }
@@ -58,6 +61,8 @@ void MainWindow::on_plainTextEdit_textChanged()
     ui->webView->setHtml(outputText);
 }
 
+
+// STYLES
 void MainWindow::on_cssButton_clicked()
 {
     QString stylesheet = QFileDialog::getOpenFileName(this,
@@ -96,3 +101,5 @@ void MainWindow::on_addStyleFromUrlButton_clicked()
     if (input == "http://") return;
     styles.addStylesheetFromUrl(ui, input);
 }
+
+/* SIGNALS END HERE */

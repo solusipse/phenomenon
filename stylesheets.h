@@ -29,4 +29,12 @@ private:
     void updateList(Ui::MainWindow *ui);
 };
 
+class Stylesheet
+{
+public:
+    Stylesheet();
+    QString path;
+    QString link;
+};
+
 #endif // STYLESHEETS_H

@@ -2,7 +2,6 @@
 #define UTILITIES_H
 
 #include "ui_mainwindow.h"
-#include "markdown.h"
 #include "tabs.h"
 
 class Utilities

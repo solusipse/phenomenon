@@ -1,5 +1,7 @@
 #include "utilities.h"
 
+#include "markdown.h"
+
 Utilities commonUtils;
 
 Utilities::Utilities()

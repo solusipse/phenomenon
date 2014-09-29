@@ -1,20 +1,15 @@
 #ifndef THEME_H
 #define THEME_H
 
-#include <QStyleFactory.h>
-
-#include "ui_mainwindow.h"
-#include "utilities.h"
-
 class Theme
 {
     public:
-        Theme(Ui::MainWindow *ui);
+        Theme();
     private:
         void setDarkTheme();
-        void miscSettings(Ui::MainWindow *ui);
+        void miscSettings();
         void loadMainCss();
-        void createSplitter(Ui::MainWindow *ui);
+        void createSplitter();
 };
 
 #endif // THEME_H

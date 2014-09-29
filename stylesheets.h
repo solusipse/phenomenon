@@ -3,8 +3,6 @@
 
 #include <QString>
 
-#include "ui_mainwindow.h"
-
 class Stylesheet;
 
 class Stylesheets
@@ -22,7 +20,6 @@ public:
     QString createStylesheetLink(QString path);
 
 private:
-    QVector< QVector<QString> > stylesList;
     QString cssStyle;
     void updateList();
     void updateCss();

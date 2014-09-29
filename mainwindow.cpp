@@ -1,14 +1,23 @@
 #include "mainwindow.h"
 
+#include <QFileDialog.h>
+#include <QInputDialog.h>
+#include <QLineEdit.h>
+
+#include "ui_mainwindow.h"
+#include "utilities.h"
+#include "theme.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    Theme(this->ui);
-    this->manualConnectSlots();
 
     commonUtils.ui = ui;
     commonUtils.htmlTemplate = commonUtils.getResource("misc/template.html");
+
+    Theme();
+    this->manualConnectSlots();
 
     // temporary, TODO: init method
     Tabs().add();

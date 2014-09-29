@@ -2,14 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow.h>
-#include <QFileDialog.h>
-#include <QInputDialog.h>
-#include <QLineEdit.h>
-
-#include "ui_mainwindow.h"
 #include "stylesheets.h"
-#include "utilities.h"
-#include "theme.h"
 
 namespace Ui {
 class MainWindow;

@@ -1,39 +1,39 @@
 #include "theme.h"
 
 #include <QSplitter>
+#include <QStyleFactory.h>
 
-Theme::Theme(Ui::MainWindow *ui) {
-    this->miscSettings(ui);
-    this->createSplitter(ui);
+#include "utilities.h"
+
+Theme::Theme() {
+    this->miscSettings();
+    this->createSplitter();
     this->setDarkTheme();
     this->loadMainCss();
 }
 
-void Theme::miscSettings(Ui::MainWindow *ui) {
+void Theme::miscSettings() {
     QFont font = QFont("Ubuntu Mono", 14);
 
-    ui->centralWidget->layout()->setContentsMargins(0,0,0,0);
-    ui->plainTextEdit->setFont(font);
+    commonUtils.ui->centralWidget->layout()->setContentsMargins(0,0,0,0);
+    commonUtils.ui->plainTextEdit->setFont(font);
 
     QFontMetrics metrics(font);
-    ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
+    commonUtils.ui->plainTextEdit->setTabStopWidth(4 * metrics.width(' '));
 
-    //ui->tabPanel->addTab("untitled");
-    //ui->tabPanel->addTab("untitled");
-
-    ui->tabPanel->setTabsClosable(true);
-    ui->tabPanel->setMovable(true);
-    ui->tabPanel->setExpanding(false);
+    commonUtils.ui->tabPanel->setTabsClosable(true);
+    commonUtils.ui->tabPanel->setMovable(true);
+    commonUtils.ui->tabPanel->setExpanding(false);
 }
 
-void Theme::createSplitter(Ui::MainWindow *ui) {
-    QSplitter *splitter = new QSplitter(ui->customSplitter);
+void Theme::createSplitter() {
+    QSplitter *splitter = new QSplitter(commonUtils.ui->customSplitter);
     QVBoxLayout *vbox = new QVBoxLayout;
 
-    splitter->addWidget(ui->plainTextEdit);
-    splitter->addWidget(ui->webView);
+    splitter->addWidget(commonUtils.ui->plainTextEdit);
+    splitter->addWidget(commonUtils.ui->webView);
     vbox->addWidget(splitter);
-    ui->splitterBox->setLayout(vbox);
+    commonUtils.ui->splitterBox->setLayout(vbox);
 
     vbox->setContentsMargins(0,0,0,0);
     splitter->setCollapsible(0, false);

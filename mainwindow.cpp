@@ -50,7 +50,7 @@ void MainWindow::onTabChanged(int index) {
 
 void MainWindow::addNewTab(int index) {
     // create new tab only if user clicked on empty space
-    if (index == -1) Tabs().add();
+    if (index == -1) commonUtils.procedureNewTab();
 }
 
 void MainWindow::deleteTab (int index) {
@@ -72,7 +72,7 @@ void MainWindow::on_plainTextEdit_textChanged()
 }
 
 
-// STYLES
+/* Stylesheets buttons signals */
 void MainWindow::on_cssButton_clicked()
 {
     QString stylesheet = QFileDialog::getOpenFileName(this,
@@ -115,34 +115,20 @@ void MainWindow::on_addStyleFromUrlButton_clicked()
 
 /* Main panel buttons signals */
 
-void MainWindow::on_panelButtonNewFile_clicked()
-{
-    Tabs().add();
+void MainWindow::on_panelButtonNewFile_clicked() {
+    commonUtils.procedureNewTab();
 }
 
-void MainWindow::on_panelButtonOpenFile_clicked()
-{
-    QString filePath = commonUtils.openFileDialog("Open");
-    if (filePath.isEmpty()) return;
-
-    new Tab(commonUtils.getFileName(filePath), commonUtils.getFileContents(filePath), filePath);
+void MainWindow::on_panelButtonOpenFile_clicked() {
+    commonUtils.procedureOpenFile();
 }
 
 void MainWindow::on_panelButtonSave_clicked() {
-    if (Tabs().current()->path.isEmpty()) {
-        on_panelButtonSaveAs_clicked();
-    } else {
-        commonUtils.saveFile(Tabs().current()->path, Tabs().current()->text);
-    }
-    Tabs().current()->update();
+    commonUtils.procedureSaveFile();
 }
 
 void MainWindow::on_panelButtonSaveAs_clicked() {
-    QString filePath = commonUtils.saveFileDialog("Save");
-    if (filePath.isEmpty()) return;
-    Tabs().current()->path = filePath;
-
-    on_panelButtonSave_clicked();
+    commonUtils.procedureSaveAsFile();
 }
 
 void MainWindow::on_panelButtonCut_clicked() {

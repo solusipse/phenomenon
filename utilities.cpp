@@ -20,12 +20,7 @@ QString Utilities::prepareHtml(QString styles, QString input) {
 }
 
 QString Utilities::getResource(QString path) {
-    // TODO: use getFileContents method
-    QFile file(path.prepend(":/"));
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return "error";
-    QTextStream in(&file);
-    return in.readAll();
+    return getFileContents(path.prepend(":/"));
 }
 
 QString Utilities::getFileContents(QString path) {
@@ -58,4 +53,37 @@ QString Utilities::openFileDialog(QString title) {
 
 QString Utilities::saveFileDialog(QString title) {
     return QFileDialog::getSaveFileName(ui->centralWidget, title);
+}
+
+void Utilities::procedureNewTab() {
+    Tabs().add();
+}
+
+void Utilities::procedureOpenFile() {
+    QString filePath = commonUtils.openFileDialog("Open");
+    if (filePath.isEmpty()) return;
+
+    new Tab(commonUtils.getFileName(filePath), commonUtils.getFileContents(filePath), filePath);
+}
+
+void Utilities::procedureSaveFile() {
+    if (Tabs().current()->path.isEmpty()) {
+        procedureSaveAsFile();
+    }
+    else {
+        commonUtils.saveFile(Tabs().current()->path, Tabs().current()->text);
+        Tabs().current()->update();
+    }
+}
+
+void Utilities::procedureSaveAsFile() {
+    QString filePath = commonUtils.saveFileDialog("Save");
+    if (filePath.isEmpty()) return;
+    Tabs().current()->path = filePath;
+
+    procedureSaveFile();
+}
+
+void Utilities::procedureAddFileStyle() {
+    // TODO
 }

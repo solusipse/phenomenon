@@ -20,6 +20,16 @@ public:
     QString openFileDialog(QString title);
     QString saveFileDialog(QString title);
 
+    void procedureNewTab();
+    void procedureOpenFile();
+    void procedureSaveFile();
+    void procedureSaveAsFile();
+
+    void procedureAddFileStyle();
+    void procedureAddUrlStyle();
+    void procedureMoveUpStyle();
+    void procedureRemoveStyle();
+
 private:
     QString parseTemplate();
 };

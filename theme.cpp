@@ -35,6 +35,9 @@ void Theme::createSplitter() {
     vbox->addWidget(splitter);
     commonUtils.ui->splitterBox->setLayout(vbox);
 
+    splitter->setStretchFactor(0, 3);
+    splitter->setStretchFactor(1, 1);
+
     vbox->setContentsMargins(0,0,0,0);
     splitter->setCollapsible(0, false);
     splitter->setCollapsible(1, false);

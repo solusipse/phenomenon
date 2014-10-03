@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QVector>
+#include <QTextCursor>
 
 #include "stylesheets.h"
 
@@ -27,6 +28,11 @@ class Tab
         QString title;
         QString text;
         QString path;
+        /* Cursor position has to be int for now
+         * due to QT bug. TODO: make QTextCursor instance
+         * for doing it in the future, when
+         * that bug will be fixed */
+        int cursorPosition;
         //bool modified = false;
         QVector< Stylesheet* > styles;
 

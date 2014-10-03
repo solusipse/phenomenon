@@ -34,6 +34,7 @@ class MainWindow : public QMainWindow
         void on_panelButtonCopy_clicked();
         void on_panelButtonPaste_clicked();
         void on_panelButtonUndo_clicked();
+        void on_plainTextEdit_cursorPositionChanged();
 
 private:
         Ui::MainWindow *ui;

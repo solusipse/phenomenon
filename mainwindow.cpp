@@ -27,8 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
@@ -44,8 +43,16 @@ void MainWindow::manualConnectSlots() {
 
 // TABS
 void MainWindow::onTabChanged(int index) {
+    int cursor = Tabs().fromIndex(index)->cursorPosition;
+
     ui->plainTextEdit->setPlainText(Tabs().fromIndex(index)->text);
     Stylesheets().update();
+
+    if (cursor <= ui->plainTextEdit->toPlainText().length()) {
+        QTextCursor dupa = ui->plainTextEdit->textCursor();
+        dupa.setPosition(cursor);
+        ui->plainTextEdit->setTextCursor(dupa);
+    }
 }
 
 void MainWindow::addNewTab(int index) {
@@ -63,9 +70,12 @@ void MainWindow::refreshTextEdit() {
     this->on_plainTextEdit_textChanged();
 }
 
-void MainWindow::on_plainTextEdit_textChanged()
-{
+void MainWindow::on_plainTextEdit_textChanged() {
     commonUtils.procedureRefreshTextWidget();
+}
+
+void MainWindow::on_plainTextEdit_cursorPositionChanged() {
+    Tabs().current()->cursorPosition = ui->plainTextEdit->textCursor().position();
 }
 
 
@@ -75,18 +85,15 @@ void MainWindow::on_cssButton_clicked()
     commonUtils.procedureAddFileStyle();
 }
 
-void MainWindow::on_removeStylesheetButton_clicked()
-{
+void MainWindow::on_removeStylesheetButton_clicked(){
     commonUtils.procedureRemoveStyle();
 }
 
-void MainWindow::on_cssMoveUpButton_clicked()
-{
+void MainWindow::on_cssMoveUpButton_clicked(){
     commonUtils.procedureMoveUpStyle();
 }
 
-void MainWindow::on_addStyleFromUrlButton_clicked()
-{
+void MainWindow::on_addStyleFromUrlButton_clicked(){
     commonUtils.procedureAddUrlStyle();
 }
 

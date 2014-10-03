@@ -43,6 +43,9 @@
             <property name="toolTip">
              <string/>
             </property>
+            <property name="statusTip">
+             <string>Open new tab</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -54,6 +57,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="panelButtonOpenFile">
+            <property name="statusTip">
+             <string>Open existing file</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -65,6 +71,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="panelButtonSave">
+            <property name="statusTip">
+             <string>Save</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -76,6 +85,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="panelButtonSaveAs">
+            <property name="statusTip">
+             <string>Save as...</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -91,6 +103,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_8">
           <item>
            <widget class="QToolButton" name="panelButtonUndo">
+            <property name="statusTip">
+             <string>Undo</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -102,6 +117,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="panelButtonCut">
+            <property name="statusTip">
+             <string>Cut</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -113,6 +131,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="panelButtonCopy">
+            <property name="statusTip">
+             <string>Copy</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -124,6 +145,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="panelButtonPaste">
+            <property name="statusTip">
+             <string>Paste</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -187,6 +211,9 @@
             <property name="toolTip">
              <string>Load custom CSS file.</string>
             </property>
+            <property name="statusTip">
+             <string>Add stylesheet from file</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -198,6 +225,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="addStyleFromUrlButton">
+            <property name="statusTip">
+             <string>Add stylesheet from URL</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -209,6 +239,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="cssMoveUpButton">
+            <property name="statusTip">
+             <string>Move stylesheet up</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -220,6 +253,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="removeStylesheetButton">
+            <property name="statusTip">
+             <string>Remove stylesheet</string>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -422,6 +458,12 @@
   <action name="actionNew">
    <property name="text">
     <string>New</string>
+   </property>
+   <property name="statusTip">
+    <string>Open new tab</string>
+   </property>
+   <property name="whatsThis">
+    <string>Open new tab</string>
    </property>
   </action>
   <action name="actionPlaceholder">

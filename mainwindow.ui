@@ -40,6 +40,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
            <widget class="QToolButton" name="panelButtonNewFile">
+            <property name="toolTip">
+             <string/>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -366,6 +369,9 @@
     <font>
      <family>Lucida Grande</family>
     </font>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QMenuBar" name="menuBar">

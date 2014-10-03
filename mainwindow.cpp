@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // temporary, TODO: init method
     Tabs().add();
-    Tabs().add();
 
     ui->statusBar->showMessage("Ready", 5000);
 

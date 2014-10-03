@@ -45,6 +45,7 @@ Tab::Tab(QString title, QString text, QString path) {
     this->path = path;
     Tabs().addToTabsList(this);
     commonUtils.ui->tabPanel->addTab(title);
+    commonUtils.ui->tabPanel->setCurrentIndex(this->id());
 }
 
 void Tab::close() {

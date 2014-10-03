@@ -3,27 +3,23 @@
 #include <QFileDialog.h>
 #include <QInputDialog.h>
 #include <QLineEdit.h>
+#include <QWebFrame>
+#include <QScrollBar>
 
 #include "ui_mainwindow.h"
 #include "utilities.h"
 #include "theme.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent), ui(new Ui::MainWindow)
-{
+    QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-
     commonUtils.ui = ui;
     commonUtils.htmlTemplate = commonUtils.getResource("misc/template.html");
-
     Theme();
     this->manualConnectSlots();
-
     // temporary, TODO: init method
     Tabs().add();
-
     ui->statusBar->showMessage("Ready", 5000);
-
     //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
 }
 
@@ -40,7 +36,6 @@ void MainWindow::manualConnectSlots() {
     // TODO: connect tabPanel with onTabMoved (not prototyped yet)
 }
 
-
 // TABS
 void MainWindow::onTabChanged(int index) {
     int cursor = Tabs().fromIndex(index)->cursorPosition;
@@ -49,9 +44,9 @@ void MainWindow::onTabChanged(int index) {
     Stylesheets().update();
 
     if (cursor <= ui->plainTextEdit->toPlainText().length()) {
-        QTextCursor dupa = ui->plainTextEdit->textCursor();
-        dupa.setPosition(cursor);
-        ui->plainTextEdit->setTextCursor(dupa);
+        QTextCursor newCursor = ui->plainTextEdit->textCursor();
+        newCursor.setPosition(cursor);
+        ui->plainTextEdit->setTextCursor(newCursor);
     }
 }
 
@@ -63,7 +58,6 @@ void MainWindow::addNewTab(int index) {
 void MainWindow::deleteTab (int index) {
     Tabs().close(index);
 }
-
 
 // TEXT EDIT
 void MainWindow::refreshTextEdit() {
@@ -77,7 +71,6 @@ void MainWindow::on_plainTextEdit_textChanged() {
 void MainWindow::on_plainTextEdit_cursorPositionChanged() {
     Tabs().current()->cursorPosition = ui->plainTextEdit->textCursor().position();
 }
-
 
 /* Stylesheets buttons signals */
 void MainWindow::on_cssButton_clicked()
@@ -129,4 +122,23 @@ void MainWindow::on_panelButtonPaste_clicked() {
 
 void MainWindow::on_panelButtonUndo_clicked() {
     commonUtils.procedureUndo();
+}
+
+void MainWindow::on_webView_loadProgress(int progress)
+{
+    if (progress == 100)
+    {
+        float currentScroll = (float) Tabs().current()->scrollPosition;
+        float maxScroll = (float) Tabs().current()->maxScrollPosition;
+
+        if (currentScroll == 0 || maxScroll == 0)
+            return;
+
+        float scrollPercentage = currentScroll / maxScroll;
+
+        if (scrollPercentage > 0.9)
+            ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, maxScroll));
+        else
+            ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, currentScroll));
+    }
 }

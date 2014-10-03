@@ -36,6 +36,8 @@ class MainWindow : public QMainWindow
         void on_panelButtonUndo_clicked();
         void on_plainTextEdit_cursorPositionChanged();
 
+        void on_webView_loadProgress(int progress);
+
 private:
         Ui::MainWindow *ui;
         void manualConnectSlots();

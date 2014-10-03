@@ -33,6 +33,9 @@ class Tab
          * for doing it in the future, when
          * that bug will be fixed */
         int cursorPosition;
+        int scrollPosition;
+        int maxScrollPosition;
+
         //bool modified = false;
         QVector< Stylesheet* > styles;
 

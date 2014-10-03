@@ -3,6 +3,8 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QInputDialog>
+#include <QWebFrame>
+
 #include "markdown.h"
 
 Utilities commonUtils;
@@ -123,6 +125,12 @@ void Utilities::procedureMoveUpStyle() {
 }
 
 void Utilities::procedureRefreshTextWidget() {
+    // scrolling
+    // TODO: translate textwidget percentage to webview percentage
+    Tabs().current()->scrollPosition = ui->webView->page()->currentFrame()->scrollPosition().y();
+    Tabs().current()->maxScrollPosition = ui->webView->page()->currentFrame()->scrollBarMaximum(Qt::Orientation(0));
+
+    // text rendering
     QString inputText = ui->plainTextEdit->toPlainText();
     Tabs().current()->text = inputText;
     QString outputText = prepareHtml(commonUtils.styles.getStylesheets(), inputText);

@@ -15,6 +15,10 @@ public:
     QVector<Tab*> tabsList;
     QString getFileContents(QString path);
     QString getFileName(QString path);
+    void saveFile(QString path, QString contents);
+
+    QString openFileDialog(QString title);
+    QString saveFileDialog(QString title);
 
 private:
     QString parseTemplate();

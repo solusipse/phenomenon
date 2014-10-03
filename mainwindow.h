@@ -27,8 +27,12 @@ class MainWindow : public QMainWindow
         void addNewTab(int index);
         void onTabChanged(int index);
         void on_panelButtonNewFile_clicked();
-
         void on_panelButtonOpenFile_clicked();
+        void on_panelButtonSave_clicked();
+        void on_panelButtonSaveAs_clicked();
+        void on_panelButtonCut_clicked();
+        void on_panelButtonCopy_clicked();
+        void on_panelButtonPaste_clicked();
 
 private:
         Ui::MainWindow *ui;

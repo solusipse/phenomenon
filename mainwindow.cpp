@@ -50,7 +50,6 @@ void MainWindow::onTabChanged(int index) {
 
 void MainWindow::addNewTab(int index) {
     // create new tab only if user clicked on empty space
-    // TODO: switch to new tab
     if (index == -1) Tabs().add();
 }
 
@@ -123,9 +122,37 @@ void MainWindow::on_panelButtonNewFile_clicked()
 
 void MainWindow::on_panelButtonOpenFile_clicked()
 {
-    QString filePath = QFileDialog::getOpenFileName(this,
-         tr("Open file to edit"), "");
+    QString filePath = commonUtils.openFileDialog("Open");
     if (filePath.isEmpty()) return;
 
     new Tab(commonUtils.getFileName(filePath), commonUtils.getFileContents(filePath), filePath);
+}
+
+void MainWindow::on_panelButtonSave_clicked() {
+    if (Tabs().current()->path.isEmpty()) {
+        on_panelButtonSaveAs_clicked();
+    } else {
+        commonUtils.saveFile(Tabs().current()->path, Tabs().current()->text);
+    }
+    Tabs().current()->update();
+}
+
+void MainWindow::on_panelButtonSaveAs_clicked() {
+    QString filePath = commonUtils.saveFileDialog("Save");
+    if (filePath.isEmpty()) return;
+    Tabs().current()->path = filePath;
+
+    on_panelButtonSave_clicked();
+}
+
+void MainWindow::on_panelButtonCut_clicked() {
+    commonUtils.ui->plainTextEdit->cut();
+}
+
+void MainWindow::on_panelButtonCopy_clicked() {
+    commonUtils.ui->plainTextEdit->copy();
+}
+
+void MainWindow::on_panelButtonPaste_clicked() {
+    commonUtils.ui->plainTextEdit->paste();
 }

@@ -27,10 +27,12 @@ class Tab
         QString title;
         QString text;
         QString path;
+        //bool modified = false;
         QVector< Stylesheet* > styles;
 
         void close();
         void index();
+        void update();
         int id();
 };
 

@@ -59,3 +59,8 @@ int Tab::id() {
     }
     return -1;
 }
+
+void Tab::update() {
+    this->title = commonUtils.getFileName(this->path);
+    commonUtils.ui->tabPanel->setTabText(this->id(), this->title);
+}

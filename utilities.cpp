@@ -1,6 +1,7 @@
 #include "utilities.h"
 
 #include <QFileInfo>
+#include <QFileDialog>
 #include "markdown.h"
 
 Utilities commonUtils;
@@ -38,4 +39,23 @@ QString Utilities::getFileContents(QString path) {
 QString Utilities::getFileName(QString path) {
     QFileInfo file(path);
     return file.fileName();
+}
+
+void Utilities::saveFile(QString path, QString contents) {
+    QFile file(path);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+    QTextStream out(&file);
+    out << contents;
+    file.close();
+
+    // TODO: add statusbar tooltips
+}
+
+QString Utilities::openFileDialog(QString title) {
+    return QFileDialog::getOpenFileName(ui->centralWidget, title);
+}
+
+QString Utilities::saveFileDialog(QString title) {
+    return QFileDialog::getSaveFileName(ui->centralWidget, title);
 }

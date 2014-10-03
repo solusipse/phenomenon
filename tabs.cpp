@@ -39,9 +39,10 @@ Tab *Tabs::fromIndex(int i) {
 /* Tab class */
 // every tab is of this type
 
-Tab::Tab(QString title, QString text) {
+Tab::Tab(QString title, QString text, QString path) {
     this->title = title;
     this->text = text;
+    this->path = path;
     Tabs().addToTabsList(this);
     commonUtils.ui->tabPanel->addTab(title);
 }

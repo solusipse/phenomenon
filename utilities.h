@@ -12,7 +12,9 @@ public:
     QString getResource(QString path);
     QString htmlTemplate;
     Ui::MainWindow *ui;
-    QVector<Tab*> tabsList;  
+    QVector<Tab*> tabsList;
+    QString getFileContents(QString path);
+    QString getFileName(QString path);
 
 private:
     QString parseTemplate();

@@ -28,7 +28,9 @@ class MainWindow : public QMainWindow
         void onTabChanged(int index);
         void on_panelButtonNewFile_clicked();
 
-    private:
+        void on_panelButtonOpenFile_clicked();
+
+private:
         Ui::MainWindow *ui;
         Stylesheets styles;
         void manualConnectSlots();

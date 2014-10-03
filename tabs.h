@@ -23,9 +23,10 @@ class Tabs
 class Tab
 {
     public:
-        Tab(QString title = "untitled", QString text = "");
+        Tab(QString title = "untitled", QString text = "", QString path = "");
         QString title;
         QString text;
+        QString path;
         QVector< Stylesheet* > styles;
 
         void close();

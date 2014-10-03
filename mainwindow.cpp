@@ -23,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     Tabs().add();
     Tabs().add();
 
+    ui->statusBar->showMessage("Ready", 5000);
+
     //ui->webView->settings()->setObjectCacheCapacities(0,0,0);
 }
 
@@ -120,4 +122,11 @@ void MainWindow::on_panelButtonNewFile_clicked()
     Tabs().add();
 }
 
-/* SIGNALS END HERE */
+void MainWindow::on_panelButtonOpenFile_clicked()
+{
+    QString filePath = QFileDialog::getOpenFileName(this,
+         tr("Open file to edit"), "");
+    if (filePath.isEmpty()) return;
+
+    new Tab(commonUtils.getFileName(filePath), commonUtils.getFileContents(filePath), filePath);
+}

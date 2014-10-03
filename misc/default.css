@@ -363,11 +363,12 @@ QTabBar::tab {
     color: #333;
     border: none;
     background-color: #ffa02f;
-    padding-left: 10px;
+    padding-left: 15px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 2px;
     margin-right: -1px;
+    height: 23px;
 }
 
 QTabWidget::pane {
@@ -383,10 +384,9 @@ QTabBar::tab:last
 
 QTabBar::tab:first:!selected
 {
- margin-left: 0px; /* the last selected tab has nothing to overlap with on the right */
-
-
+    margin-left: 0px;
     border-top-left-radius: 3px;
+    padding-left: 13px;
 }
 
 QTabBar::tab:!selected
@@ -397,6 +397,7 @@ QTabBar::tab:!selected
     border-right-style: solid;
     border-color: #333;
     border-width: 3px;
+    height: 20px;
 }
 
 QTabBar::tab:selected
@@ -484,4 +485,9 @@ QTabBar::close-button {
 
 QTabBar::close-button:hover {
     background-image: url(":/icons/close-hover.png");
+}
+
+QStatusBar {
+  border-top: 1px solid #424242;
+  background: #222;
 }

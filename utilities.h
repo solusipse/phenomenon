@@ -24,6 +24,7 @@ public:
     void procedureOpenFile();
     void procedureSaveFile();
     void procedureSaveAsFile();
+    void procedureUndo();
 
     void procedureAddFileStyle();
     void procedureAddUrlStyle();

@@ -142,3 +142,7 @@ void MainWindow::on_panelButtonCopy_clicked() {
 void MainWindow::on_panelButtonPaste_clicked() {
     commonUtils.ui->plainTextEdit->paste();
 }
+
+void MainWindow::on_panelButtonUndo_clicked() {
+    commonUtils.procedureUndo();
+}

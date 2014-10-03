@@ -84,6 +84,10 @@ void Utilities::procedureSaveAsFile() {
     procedureSaveFile();
 }
 
+void Utilities::procedureUndo() {
+    ui->plainTextEdit->undo();
+}
+
 void Utilities::procedureAddFileStyle() {
     // TODO
 }

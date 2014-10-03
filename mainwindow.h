@@ -33,6 +33,7 @@ class MainWindow : public QMainWindow
         void on_panelButtonCut_clicked();
         void on_panelButtonCopy_clicked();
         void on_panelButtonPaste_clicked();
+        void on_panelButtonUndo_clicked();
 
 private:
         Ui::MainWindow *ui;

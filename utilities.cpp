@@ -2,6 +2,7 @@
 
 #include <QFileInfo>
 #include <QFileDialog>
+#include <QInputDialog>
 #include "markdown.h"
 
 Utilities commonUtils;
@@ -89,5 +90,41 @@ void Utilities::procedureUndo() {
 }
 
 void Utilities::procedureAddFileStyle() {
-    // TODO
+    QString stylesheet = openFileDialog("Add stylesheet from file");
+    if (stylesheet.isEmpty()) return;
+    styles.addStylesheetFromFile(stylesheet);
+    procedureRefreshTextWidget();
+}
+
+void Utilities::procedureAddUrlStyle() {
+    QString input = QInputDialog::getText(
+        ui->centralWidget, "Load Stylesheet from URL", "URL:", QLineEdit::Normal, "http://");
+    if (input == "http://" || input.isEmpty()) return;
+    styles.addStylesheetFromUrl(input);
+}
+
+void Utilities::procedureRemoveStyle() {
+    if (!ui->stylesList->selectedItems().empty())
+    {
+        QListWidgetItem *selectedItem = ui->stylesList->currentItem();
+        styles.removeStylesheet(selectedItem->text());
+        delete selectedItem;
+        procedureRefreshTextWidget();
+    }
+}
+
+void Utilities::procedureMoveUpStyle() {
+    if (ui->stylesList->currentRow() > 0)
+    {
+        QListWidgetItem *selectedItem = ui->stylesList->currentItem();
+        styles.moveStyleUp(selectedItem->text());
+        procedureRefreshTextWidget();
+    }
+}
+
+void Utilities::procedureRefreshTextWidget() {
+    QString inputText = ui->plainTextEdit->toPlainText();
+    Tabs().current()->text = inputText;
+    QString outputText = prepareHtml(commonUtils.styles.getStylesheets(), inputText);
+    ui->webView->setHtml(outputText);
 }

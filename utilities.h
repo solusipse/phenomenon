@@ -3,22 +3,27 @@
 
 #include "ui_mainwindow.h"
 #include "tabs.h"
+#include "stylesheets.h"
 
 class Utilities
 {
 public:
     Utilities();
+
+    Ui::MainWindow *ui;
+    QString htmlTemplate;
+    QVector<Tab*> tabsList;
+    Stylesheets styles;
+
     QString prepareHtml(QString styles, QString input);
     QString getResource(QString path);
-    QString htmlTemplate;
-    Ui::MainWindow *ui;
-    QVector<Tab*> tabsList;
     QString getFileContents(QString path);
     QString getFileName(QString path);
-    void saveFile(QString path, QString contents);
 
     QString openFileDialog(QString title);
     QString saveFileDialog(QString title);
+
+    void saveFile(QString path, QString contents);
 
     void procedureNewTab();
     void procedureOpenFile();
@@ -30,6 +35,8 @@ public:
     void procedureAddUrlStyle();
     void procedureMoveUpStyle();
     void procedureRemoveStyle();
+
+    void procedureRefreshTextWidget();
 
 private:
     QString parseTemplate();

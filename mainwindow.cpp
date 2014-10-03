@@ -65,52 +65,29 @@ void MainWindow::refreshTextEdit() {
 
 void MainWindow::on_plainTextEdit_textChanged()
 {
-    QString inputText = ui->plainTextEdit->toPlainText();
-    Tabs().current()->text = inputText;
-    QString outputText = commonUtils.prepareHtml(styles.getStylesheets(), inputText);
-    ui->webView->setHtml(outputText);
+    commonUtils.procedureRefreshTextWidget();
 }
 
 
 /* Stylesheets buttons signals */
 void MainWindow::on_cssButton_clicked()
 {
-    QString stylesheet = QFileDialog::getOpenFileName(this,
-         tr("Open custom stylesheet"), "",
-         tr("Stylesheets (*.css)"));
-    if (stylesheet.isEmpty()) return;
-    styles.addStylesheetFromFile(stylesheet);
-    this->refreshTextEdit();
+    commonUtils.procedureAddFileStyle();
 }
 
 void MainWindow::on_removeStylesheetButton_clicked()
 {
-    if (!ui->stylesList->selectedItems().empty())
-    {
-        QListWidgetItem *selectedItem = ui->stylesList->currentItem();
-        styles.removeStylesheet(selectedItem->text());
-        delete selectedItem;
-        this->refreshTextEdit();
-    }
+    commonUtils.procedureRemoveStyle();
 }
 
 void MainWindow::on_cssMoveUpButton_clicked()
 {
-    if (ui->stylesList->currentRow() > 0)
-    {
-        QListWidgetItem *selectedItem = ui->stylesList->currentItem();
-        styles.moveStyleUp(selectedItem->text());
-        this->refreshTextEdit();
-    }
+    commonUtils.procedureMoveUpStyle();
 }
 
 void MainWindow::on_addStyleFromUrlButton_clicked()
 {
-    QString input = QInputDialog::getText(this,
-        tr("Load Stylesheet from URL"),
-        tr("URL:"), QLineEdit::Normal, "http://");
-    if (input == "http://") return;
-    styles.addStylesheetFromUrl(input);
+    commonUtils.procedureAddUrlStyle();
 }
 
 /* Main panel buttons signals */

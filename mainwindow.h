@@ -37,7 +37,6 @@ class MainWindow : public QMainWindow
 
 private:
         Ui::MainWindow *ui;
-        Stylesheets styles;
         void manualConnectSlots();
 };
 

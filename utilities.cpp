@@ -4,6 +4,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QWebFrame>
+#include <QScrollBar>
 
 #include "markdown.h"
 
@@ -124,9 +125,26 @@ void Utilities::procedureMoveUpStyle() {
     }
 }
 
+void Utilities::setWebViewScroller() {
+    float currentScroll = (float) Tabs().current()->scrollPosition;
+    float maxScroll = (float) Tabs().current()->maxScrollPosition;
+    float textWidgetScrollPosition = (float) ui->plainTextEdit->verticalScrollBar()->sliderPosition();
+    float textWidgetScrollMaxPosition = (float) ui->plainTextEdit->verticalScrollBar()->maximum();
+    float scrollPercentage = currentScroll / maxScroll;
+    float textWidgetScrollPercentage = textWidgetScrollPosition / textWidgetScrollMaxPosition;
+
+    if (textWidgetScrollPercentage > 0.9)
+        ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, maxScroll));
+    if (currentScroll == 0 || maxScroll == 0)
+        return;
+    if (scrollPercentage > 0.8)
+        ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, maxScroll));
+    else
+        ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, currentScroll));
+}
+
 void Utilities::procedureRefreshTextWidget() {
     // scrolling
-    // TODO: translate textwidget percentage to webview percentage
     Tabs().current()->scrollPosition = ui->webView->page()->currentFrame()->scrollPosition().y();
     Tabs().current()->maxScrollPosition = ui->webView->page()->currentFrame()->scrollBarMaximum(Qt::Orientation(0));
 

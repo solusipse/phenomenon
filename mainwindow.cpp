@@ -127,18 +127,5 @@ void MainWindow::on_panelButtonUndo_clicked() {
 void MainWindow::on_webView_loadProgress(int progress)
 {
     if (progress == 100)
-    {
-        float currentScroll = (float) Tabs().current()->scrollPosition;
-        float maxScroll = (float) Tabs().current()->maxScrollPosition;
-
-        if (currentScroll == 0 || maxScroll == 0)
-            return;
-
-        float scrollPercentage = currentScroll / maxScroll;
-
-        if (scrollPercentage > 0.9)
-            ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, maxScroll));
-        else
-            ui->webView->page()->currentFrame()->setScrollPosition(QPoint(0, currentScroll));
-    }
+        commonUtils.setWebViewScroller();
 }

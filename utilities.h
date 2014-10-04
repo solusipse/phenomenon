@@ -38,6 +38,8 @@ public:
 
     void procedureRefreshTextWidget();
 
+    void setWebViewScroller();
+
 private:
     QString parseTemplate();
 };

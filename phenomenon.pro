@@ -12,32 +12,23 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = phenomenon
 TEMPLATE = app
 
-SUBDIRS += sundown
-sundownlib.makefile = sundown/Makefile
-
-QMAKE_EXTRA_TARGETS += sundown
-
 LIBS += -Llibs/hoedown -lhoedown
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    theme.cpp \
-    utilities.cpp \
-    stylesheets.cpp \
-    markdown.cpp \
-    tabs.cpp
+SOURCES +=  src/main.cpp\
+            src/mainwindow.cpp \
+            src/theme.cpp \
+            src/utilities.cpp \
+            src/stylesheets.cpp \
+            src/markdown.cpp \
+            src/tabs.cpp
 
-HEADERS  += mainwindow.h \
-    theme.h \
-    utilities.h \
-    stylesheets.h \
-    markdown.h \
-    tabs.h
+HEADERS  += src/mainwindow.h \
+            src/theme.h \
+            src/utilities.h \
+            src/stylesheets.h \
+            src/markdown.h \
+            src/tabs.h
 
-FORMS    += mainwindow.ui
+FORMS    += src/mainwindow.ui
 
-RESOURCES += \
-    Resources.qrc
-
-OTHER_FILES += \
-    icons/file.png
+RESOURCES+= resources/Resources.qrc

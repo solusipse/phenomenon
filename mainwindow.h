@@ -35,8 +35,12 @@ class MainWindow : public QMainWindow
         void on_panelButtonPaste_clicked();
         void on_panelButtonUndo_clicked();
         void on_plainTextEdit_cursorPositionChanged();
-
         void on_webView_loadProgress(int progress);
+        void on_actionNew_triggered();
+        void on_actionOpen_triggered();
+        void on_actionSave_triggered();
+        void on_actionSaveAs_triggered();
+        void on_actionCloseTab_triggered();
 
 private:
         Ui::MainWindow *ui;

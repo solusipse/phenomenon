@@ -124,8 +124,29 @@ void MainWindow::on_panelButtonUndo_clicked() {
     commonUtils.procedureUndo();
 }
 
-void MainWindow::on_webView_loadProgress(int progress)
-{
+void MainWindow::on_webView_loadProgress(int progress) {
     if (progress == 100)
         commonUtils.setWebViewScroller();
+}
+
+/* Menu signals */
+
+void MainWindow::on_actionNew_triggered() {
+    commonUtils.procedureNewTab();
+}
+
+void MainWindow::on_actionOpen_triggered() {
+    commonUtils.procedureOpenFile();
+}
+
+void MainWindow::on_actionSave_triggered() {
+    commonUtils.procedureSaveFile();
+}
+
+void MainWindow::on_actionSaveAs_triggered() {
+    commonUtils.procedureSaveAsFile();
+}
+
+void MainWindow::on_actionCloseTab_triggered() {
+    commonUtils.procedureCloseCurrentTab();
 }

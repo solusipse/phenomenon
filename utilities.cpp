@@ -89,6 +89,7 @@ void Utilities::procedureSaveAsFile() {
 }
 
 void Utilities::procedureUndo() {
+    // TODO: make tab-oriented mechanism
     ui->plainTextEdit->undo();
 }
 
@@ -153,4 +154,8 @@ void Utilities::procedureRefreshTextWidget() {
     Tabs().current()->text = inputText;
     QString outputText = prepareHtml(commonUtils.styles.getStylesheets(), inputText);
     ui->webView->setHtml(outputText);
+}
+
+void Utilities::procedureCloseCurrentTab() {
+    Tabs().current()->close();
 }

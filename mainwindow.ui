@@ -44,7 +44,7 @@
              <string/>
             </property>
             <property name="statusTip">
-             <string>Open new tab</string>
+             <string>New file</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -424,36 +424,76 @@
      <string>File</string>
     </property>
     <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionOpenRecent"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="actionCloseTab"/>
+    <addaction name="actionCloseAllTabs"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
      <string>Edit</string>
     </property>
-    <addaction name="actionPlaceholder"/>
-   </widget>
-   <widget class="QMenu" name="menuFind">
-    <property name="title">
-     <string>Find</string>
-    </property>
-    <addaction name="actionPlaceholder_2"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind"/>
+    <addaction name="actionReplace"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
      <string>View</string>
     </property>
     <addaction name="actionPlaceholder_3"/>
+    <addaction name="actionEnter_full_screen"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="actionPlaceholder_4"/>
+    <addaction name="actionSetCustomTemplate"/>
+    <addaction name="actionRemove_all_stylesheets"/>
+   </widget>
+   <widget class="QMenu" name="menuMarkdown">
+    <property name="title">
+     <string>Markdown</string>
+    </property>
+    <addaction name="actionHeader_1"/>
+    <addaction name="actionHeader_2"/>
+    <addaction name="actionHeader_3"/>
+    <addaction name="separator"/>
+    <addaction name="actionOrdered_list"/>
+    <addaction name="actionUnordered_list"/>
+    <addaction name="separator"/>
+    <addaction name="actionEmphasis"/>
+    <addaction name="actionStrong_emphasis"/>
+    <addaction name="separator"/>
+    <addaction name="actionBlockquote"/>
+    <addaction name="actionCode_2"/>
+    <addaction name="actionCode"/>
+    <addaction name="separator"/>
+    <addaction name="actionLink"/>
+    <addaction name="actionImage"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
-   <addaction name="menuFind"/>
    <addaction name="menuView"/>
+   <addaction name="menuMarkdown"/>
    <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="actionNew">
    <property name="text">
@@ -463,12 +503,18 @@
     <string>Open new tab</string>
    </property>
    <property name="whatsThis">
-    <string>Open new tab</string>
+    <string/>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="actionPlaceholder">
+  <action name="actionUndo">
    <property name="text">
-    <string>placeholder</string>
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
    </property>
   </action>
   <action name="actionPlaceholder_2">
@@ -478,12 +524,257 @@
   </action>
   <action name="actionPlaceholder_3">
    <property name="text">
-    <string>placeholder</string>
+    <string>Display line numbers</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+L</string>
    </property>
   </action>
-  <action name="actionPlaceholder_4">
+  <action name="actionSetCustomTemplate">
    <property name="text">
-    <string>placeholder</string>
+    <string>Set custom template</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="text">
+    <string>Save as</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionCloseTab">
+   <property name="text">
+    <string>Close tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionCloseAllTabs">
+   <property name="text">
+    <string>Close all tabs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+  <action name="actionOpenRecent">
+   <property name="text">
+    <string>Open recent</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="text">
+    <string>Find</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionReplace">
+   <property name="text">
+    <string>Replace</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
+   </property>
+  </action>
+  <action name="actionEnter_full_screen">
+   <property name="text">
+    <string>Full screen</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="action_1">
+   <property name="text">
+    <string>#1</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>#2</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>#3</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>#4</string>
+   </property>
+  </action>
+  <action name="action_5">
+   <property name="text">
+    <string>#5</string>
+   </property>
+  </action>
+  <action name="action_6">
+   <property name="text">
+    <string>#6</string>
+   </property>
+  </action>
+  <action name="action_7">
+   <property name="text">
+    <string>#7</string>
+   </property>
+  </action>
+  <action name="actionBlockquote">
+   <property name="text">
+    <string>Blockquote</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="actionCode">
+   <property name="text">
+    <string>Inline code</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+6</string>
+   </property>
+  </action>
+  <action name="actionCode_2">
+   <property name="text">
+    <string>Code</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="actionEmphasis">
+   <property name="text">
+    <string>Emphasis</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionStrong_emphasis">
+   <property name="text">
+    <string>Strong emphasis</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionOrdered">
+   <property name="text">
+    <string>Ordered</string>
+   </property>
+  </action>
+  <action name="actionLink">
+   <property name="text">
+    <string>Link</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionImage">
+   <property name="text">
+    <string>Image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionHeader_1">
+   <property name="text">
+    <string>Header #1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionHeader_2">
+   <property name="text">
+    <string>Header #2</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="actionHeader_3">
+   <property name="text">
+    <string>Header #3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="actionOrdered_list">
+   <property name="text">
+    <string>Ordered list</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionUnordered_list">
+   <property name="text">
+    <string>Unordered list</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionRemove_all_stylesheets">
+   <property name="text">
+    <string>Remove all stylesheets</string>
    </property>
   </action>
  </widget>

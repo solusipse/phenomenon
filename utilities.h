@@ -30,13 +30,12 @@ public:
     void procedureSaveFile();
     void procedureSaveAsFile();
     void procedureUndo();
-
     void procedureAddFileStyle();
     void procedureAddUrlStyle();
     void procedureMoveUpStyle();
     void procedureRemoveStyle();
-
     void procedureRefreshTextWidget();
+    void procedureCloseCurrentTab();
 
     void setWebViewScroller();
 

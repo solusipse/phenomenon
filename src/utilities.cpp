@@ -159,3 +159,10 @@ void Utilities::procedureRefreshTextWidget() {
 void Utilities::procedureCloseCurrentTab() {
     Tabs().current()->close();
 }
+
+void Utilities::procedureCloseAllTabs() {
+    int i = Tabs().count() - 1;
+    for (int j = 0; i > j; i--)
+        Tabs().close(i);
+    Tabs().current()->close();
+}

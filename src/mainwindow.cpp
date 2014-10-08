@@ -150,3 +150,7 @@ void MainWindow::on_actionSaveAs_triggered() {
 void MainWindow::on_actionCloseTab_triggered() {
     commonUtils.procedureCloseCurrentTab();
 }
+
+void MainWindow::on_actionCloseAllTabs_triggered() {
+    commonUtils.procedureCloseAllTabs();
+}

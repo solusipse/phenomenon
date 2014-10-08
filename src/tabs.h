@@ -19,6 +19,7 @@ class Tabs
         Tab *current();
         Tab *add();
         Tab *fromIndex(int i);
+        int count();
 };
 
 class Tab

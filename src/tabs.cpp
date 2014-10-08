@@ -10,6 +10,8 @@ Tabs::Tabs() {
 }
 
 void Tabs::close(int i) {
+    if(Tabs().count() == 1)
+        commonUtils.procedureNewTab();
     delete this->fromIndex(i);
     commonUtils.tabsList.remove(i);
     commonUtils.ui->tabPanel->removeTab(i);
@@ -33,6 +35,10 @@ Tab *Tabs::add() {
 
 Tab *Tabs::fromIndex(int i) {
     return commonUtils.tabsList[i];
+}
+
+int Tabs::count() {
+    return commonUtils.tabsList.count();
 }
 
 

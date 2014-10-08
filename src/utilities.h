@@ -36,6 +36,7 @@ public:
     void procedureRemoveStyle();
     void procedureRefreshTextWidget();
     void procedureCloseCurrentTab();
+    void procedureCloseAllTabs();
 
     void setWebViewScroller();
 

@@ -41,6 +41,7 @@ class MainWindow : public QMainWindow
         void on_actionSave_triggered();
         void on_actionSaveAs_triggered();
         void on_actionCloseTab_triggered();
+        void on_actionCloseAllTabs_triggered();
 
 private:
         Ui::MainWindow *ui;

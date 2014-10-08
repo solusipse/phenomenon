@@ -109,15 +109,15 @@ void MainWindow::on_panelButtonSaveAs_clicked() {
 }
 
 void MainWindow::on_panelButtonCut_clicked() {
-    commonUtils.ui->plainTextEdit->cut();
+    commonUtils.procedureCut();
 }
 
 void MainWindow::on_panelButtonCopy_clicked() {
-    commonUtils.ui->plainTextEdit->copy();
+    commonUtils.procedureCopy();
 }
 
 void MainWindow::on_panelButtonPaste_clicked() {
-    commonUtils.ui->plainTextEdit->paste();
+    commonUtils.procedurePaste();
 }
 
 void MainWindow::on_panelButtonUndo_clicked() {
@@ -153,4 +153,24 @@ void MainWindow::on_actionCloseTab_triggered() {
 
 void MainWindow::on_actionCloseAllTabs_triggered() {
     commonUtils.procedureCloseAllTabs();
+}
+
+void MainWindow::on_actionUndo_triggered() {
+    commonUtils.procedureUndo();
+}
+
+void MainWindow::on_actionRedo_triggered() {
+    commonUtils.procedureRedo();
+}
+
+void MainWindow::on_actionCut_triggered() {
+    commonUtils.procedureCut();
+}
+
+void MainWindow::on_actionCopy_triggered() {
+    commonUtils.procedureCopy();
+}
+
+void MainWindow::on_actionPaste_triggered() {
+    commonUtils.procedurePaste();
 }

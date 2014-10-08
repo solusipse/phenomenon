@@ -30,6 +30,10 @@ public:
     void procedureSaveFile();
     void procedureSaveAsFile();
     void procedureUndo();
+    void procedureRedo();
+    void procedureCut();
+    void procedureCopy();
+    void procedurePaste();
     void procedureAddFileStyle();
     void procedureAddUrlStyle();
     void procedureMoveUpStyle();

@@ -93,6 +93,23 @@ void Utilities::procedureUndo() {
     ui->plainTextEdit->undo();
 }
 
+void Utilities::procedureRedo() {
+    // TODO: make tab-oriented mechanism
+    ui->plainTextEdit->redo();
+}
+
+void Utilities::procedureCut() {
+    commonUtils.ui->plainTextEdit->cut();
+}
+
+void Utilities::procedureCopy() {
+    commonUtils.ui->plainTextEdit->copy();
+}
+
+void Utilities::procedurePaste() {
+    commonUtils.ui->plainTextEdit->paste();
+}
+
 void Utilities::procedureAddFileStyle() {
     QString stylesheet = openFileDialog("Add stylesheet from file");
     if (stylesheet.isEmpty()) return;

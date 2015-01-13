@@ -1,13 +1,25 @@
 #include "markdown.h"
 
-#include "libs/hoedown/src/autolink.h"
-#include "libs/hoedown/src/buffer.h"
-#include "libs/hoedown/src/document.h"
-#include "libs/hoedown/src/escape.h"
-#include "libs/hoedown/src/html_blocks.c"
-#include "libs/hoedown/src/html.h"
-#include "libs/hoedown/src/stack.h"
-#include "libs/hoedown/src/version.h"
+#ifdef __unix__
+    #include "libs/hoedown/src/autolink.h"
+    #include "libs/hoedown/src/buffer.h"
+    #include "libs/hoedown/src/document.h"
+    #include "libs/hoedown/src/escape.h"
+    #include "libs/hoedown/src/html_blocks.c"
+    #include "libs/hoedown/src/html.h"
+    #include "libs/hoedown/src/stack.h"
+    #include "libs/hoedown/src/version.h"
+#elif defined(_WIN32) || defined(WIN32)
+    #include "../libs/hoedown/src/autolink.h"
+    #include "../libs/hoedown/src/buffer.h"
+    #include "../libs/hoedown/src/document.h"
+    #include "../libs/hoedown/src/escape.h"
+    #include "../libs/hoedown/src/html_blocks.c"
+    #include "../libs/hoedown/src/html.h"
+    #include "../libs/hoedown/src/stack.h"
+    #include "../libs/hoedown/src/version.h"
+#endif
+
 
 Markdown::Markdown()
 {
@@ -61,7 +73,7 @@ QString Markdown::parseMarkdown(QString input) {
     hoedown_document_free(document);
     hoedown_buffer_free(ob);
     renderer_free(renderer);
-    free(ib);
+    //free(ib);
 
     QString output = QString::fromStdString(outputStdString);
     return output;

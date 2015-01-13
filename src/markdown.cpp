@@ -1,15 +1,6 @@
 #include "markdown.h"
 
-#ifdef __unix__
-    #include "libs/hoedown/src/autolink.h"
-    #include "libs/hoedown/src/buffer.h"
-    #include "libs/hoedown/src/document.h"
-    #include "libs/hoedown/src/escape.h"
-    #include "libs/hoedown/src/html_blocks.c"
-    #include "libs/hoedown/src/html.h"
-    #include "libs/hoedown/src/stack.h"
-    #include "libs/hoedown/src/version.h"
-#elif defined(_WIN32) || defined(WIN32)
+#ifdef OS_WINDOWS
     #include "../libs/hoedown/src/autolink.h"
     #include "../libs/hoedown/src/buffer.h"
     #include "../libs/hoedown/src/document.h"
@@ -18,6 +9,15 @@
     #include "../libs/hoedown/src/html.h"
     #include "../libs/hoedown/src/stack.h"
     #include "../libs/hoedown/src/version.h"
+#else
+    #include "libs/hoedown/src/autolink.h"
+    #include "libs/hoedown/src/buffer.h"
+    #include "libs/hoedown/src/document.h"
+    #include "libs/hoedown/src/escape.h"
+    #include "libs/hoedown/src/html_blocks.c"
+    #include "libs/hoedown/src/html.h"
+    #include "libs/hoedown/src/stack.h"
+    #include "libs/hoedown/src/version.h"
 #endif
 
 

@@ -13,7 +13,13 @@ TARGET = phenomenon
 TEMPLATE = app
 
 INCLUDEPATH += libs/hoedown/src
-LIBS += -lhoedown
+
+unix {
+    LIBS += -Llibs/hoedown -lhoedown
+}
+win32 {
+    LIBS += -lhoedown
+}
 
 SOURCES +=  src/main.cpp\
             src/mainwindow.cpp \

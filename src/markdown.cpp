@@ -1,6 +1,6 @@
 #include "markdown.h"
 
-#ifdef OS_WINDOWS
+#ifdef _WIN32
     #include "../libs/hoedown/src/autolink.h"
     #include "../libs/hoedown/src/buffer.h"
     #include "../libs/hoedown/src/document.h"
